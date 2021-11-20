@@ -104,7 +104,7 @@ The first option we see here enables us to set the location of the blockchain. T
 
 One of the prerequisites for this video was at least 50GB of disk space, this is the minimum required space and would only allow you to download a pruned version of the blockchain, not the entire thing.
 
-Simply put; a pruned node is one with the entire transaction history, but only a small share of the details. Not all pruned nodes are created equal, only together can they preserve the whole blockchain as each holds about 1/8^(th) of the required detail.
+Simply put; a pruned node is one with the entire transaction history, but only a small share of the details. Not all pruned nodes are created equal, only together can they preserve the whole blockchain as each holds about 1/8 th of the required detail.
 
 Pruned nodes are always recommended over using remote ones, however if you can, host a full node as it's the best thing for the network. To do so you will require 130GB or more depending on when you watch this video.
 
