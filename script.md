@@ -12,7 +12,7 @@ Hello and welcome to the second video in this series "Getting to grips with Mone
 
 In this video we will be developing our understanding of nodes. One of, if not the most important piece of infrastructure in the Monero ecosystem.
 
-We'll be discussing what they are and why they're important and demonstrating step-by-step how set up your own.
+We'll be discussing what they are, why they're important and demonstrating step-by-step how set up your own.
 
 So let's get going.
 
@@ -21,6 +21,8 @@ So let's get going.
 ### WHAT IS A MONERO NODE?
 
 Fundamentally a Monero node is a piece of hardware connected to the Internet which both stores a copy of the blockchain and runs the Monero software.
+
+Running your own node and connecting to the P2P network is akin to downloading and seeding a torrent for all those who want to access it.
 
 Nodes are programmed to follow a certain set of rules which facilitate the running of the network. A very important abstraction from these rules is the consensus mechanism. It is through this mechanism that the legitimate history of the Monero blockhain is maintained.
 
@@ -38,7 +40,8 @@ There are a few benefits to running a local node, most notably, privacy!
 When you connect to remote nodes, it is possible for the host to obtain the following details: Your IP address, the block height from which your wallet started synchronisation, the transaction IDs you broadcast and a list of decoys. Depending on your own privacy concerns, this might not be ideal.
 Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. Hence it is generally recommended that you host your own node for use with your wallet.
 
-That being said, if you are unable to run your own node for whatever reason, don't worry. Just be aware that by doing so, you must place a certain level of trust in the node you connect to. 
+That being said, if you are unable to run your own node for whatever reason, don't worry, you can simply connect to a remote node hosted by someone else. If you do so, make sure it's a node you can trust, this is very important.
+
 The most private way to connect to a remote node is via a hidden service, which we'll get into during other videos in this series. If you plan on going this route, you can skip over this video.
 Best practice is not timeless. There are always developments in the Monero ecosystem, all of which go toward creating a better user experience for the Monero community. 
 
@@ -64,6 +67,10 @@ You will find the commands used in the description below, feel free to copy and 
 `mkdir ~/monerod; tar -xjf monero-linux-x64-v*.tar.bz2 -C ~/monerod`
 
 Before we execute this command, let's have a little look at what we're about to do. Firstly, we're making a directory called "monerod", in the users directory (/home/"USERNAME"), then we're using "tar" to unpack the compressed file into the directory we just created.
+
+Be aware, if you're using a raspberry pi or similar, you may well need the ARM version of the software. You should also note, that the raspberry pi is not such a good platform for running the Monero daemon due to it lacking the AES instruction set. Other boards such as the RockPro64 work better but even better than that just use an old i5/i7!
+
+Now, let's hit enter.
 
 If we head back to our file explorer, we can see the results graphically.
 
@@ -92,7 +99,7 @@ Open the folder we extracted earlier, it is in this directory that we're going t
 We're going to use the example file from the Monero docs website as a template to work from [Monerodocs; config file](https://monerodocs.org/interacting/monero-config-file/).
 Scroll down to the subheading "Examples" and copy the example to your clipboard using the provided button, now paste it into your text editor.
 
-You'll notice quite a few "#" symbols in this text. They serve as commands and every time the Monero daemon comes across one, it skips to the next line. It's a really easy way for us to leave information and comments in the file, without them interfering with its operation.
+You'll notice quite a few "#" symbols in this text. They serve as commands and every time the Monero daemon comes across one, it skips to the next line. It's a really easy way for us to leave information and comments in the file, without them interfering with its operation. If you come across a setting you would like to implement, simply delete the "#" symbol.
 
 There are a lot of different settings you can apply to the daemon and the [MoneroDocs](https://monerodocs.org/interacting/monerod-reference) web page is a great resource for finding the things you want.
 
@@ -122,13 +129,13 @@ The next thing on the list is the location you want the Monero daemon to save lo
 
 Before moving onto the next part of the config it would be good if we address a few things first. Every time you start the Monero daemon it starts several processes which use different ports to run. The first on our list is the P2P service; this is how your node communicates with the rest of the network and keeps itself up to date. Currently the ip address is bound to "0.0.0.0", this is the best option if you haven't got any kind of custom networking. 
 
-The port number is bound to the default and recommended one. You can of course change this to what ever you like. Being able to change this port number is great if you cannot forward a certain port on your router, or if your VPN service won't let your specify this one.
+The port number is bound to the default and recommended one. You can of course change this to what ever you like, but be mindful that a wide variety of ports are used by other applications/services, so it's a good idea to stick to the recommended ones. 
 
-We're going to leave this port as default for now, so take note of it. For our node to be a fully fledged member of the Monero network we need to forward this port on both our firewall and router so that our node can relay its blockchain data.
+Being able to change this port number is great if you cannot forward a certain port on your router, or if your VPN service won't let your specify this one, however, we're going to leave this port as default for now, so take note of it. For our node to be a fully fledged member of the Monero network we need to forward this port on both our firewall and router so that our node can relay its blockchain data.
 
-The other process on the list is the Monero RPC. RPC stands for remote procedure call and is the method used for communication between wallets and nodes. Once again, please take note of this port as we will need it later. In this guide we're going to leave everything as default.
+The other process on the list is the Monero RPC. RPC stands for remote procedure call and is the method used for communication between wallets and nodes. We're not going to go into too much detail in this video, but it is possible for you to allow external connections. Running an RPC service is certainly helpful to those who can't or won't run their own node, but it exposes an entirely different part of the Monero codebase to the Internet. As many of you are will be setting this up on your own personal computer, we advise against this for now.
 
-To save time in this video we're going to skip over the next two sections. If you're interested in what they do, please check out the monerodocs.
+To save time in this video we're going to skip over the next two sections. If you're interested in what they do, please check out the monerodocs for more info.
 
 Finally we move onto network traffic. How many peers you connect to and the bandwidth you allocate is totally customisable. The more outpeers and the the down rate will directly contribute to your initial sync. So i suggest to have these pretty high to begin with, you can change things later on to suit your circumstances. 
 I'm going to leave all of this as default for now.
@@ -157,9 +164,11 @@ The following two sections will cover linux and windows independently, so please
 
 ### FORWARDING THE P2P PORT - LINUX
 
-Forwarding the required port is relatively simple as a linux user. To do so, we're going to use the "Uncomplicated Firewall", [ufw](https://wiki.ubuntu.com/UncomplicatedFirewall) for short. This may be entirely new to you and if it is, the first thing you're going to want to do is enable it.
+Forwarding the required port is relatively simple as a linux user. To do so, we're going to use the "Uncomplicated Firewall", [ufw](https://wiki.ubuntu.com/UncomplicatedFirewall) for short. This may be entirely new to you and if it is, the first thing you're going to want see it's install.
 
-Use `ctrl+shift+t` to open up a new tab in your terminal and follow it up with the command `sudo ufw enable`. Next, we're going to use the command `sudo ufw default deny incoming` and `sudo ufw default allow outgoing`. 
+Use `ctrl+shift+t` to open up a new tab in your terminal and follow it up with the command `ufw --version`, if you don't get a printout with a version number, you will need to install it, which you can do via your package manager.
+
+To enable the ufw, we will use the command `sudo ufw enable`. Next, we're going to use the command `sudo ufw default deny incoming` and `sudo ufw default allow outgoing`. 
 
 What we have done here is block allow incoming connections and allowed all outgoing. This isn't ideal right now as you won't be able to use your browser or download system updates. For this reason you're going to want to allow ports 443 (tcp-https) and 80 (tcp-http).
 
