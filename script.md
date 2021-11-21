@@ -38,9 +38,10 @@ Local nodes are those which are within your local network. Remote nodes are thos
 There are a few benefits to running a local node, most notably, privacy! 
 
 When you connect to remote nodes, it is possible for the host to obtain the following details: Your IP address, the block height from which your wallet started synchronisation, the transaction IDs you broadcast and a list of decoys. Depending on your own privacy concerns, this might not be ideal.
-Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. Hence it is generally recommended that you host your own node for use with your wallet.
 
-That being said, if you are unable to run your own node for whatever reason, don't worry, you can simply connect to a remote node hosted by someone else. If you do so, make sure it's a node you can trust, this is very important.
+That being said, if you are unable to run your own node for whatever reason, don't worry, just make sure you connect to a remote node hosted by someone you can trust. This is very important!
+
+Another thing to think about when connecting to remote nodes is that your internet service provider will be able to see that you're connecting to one and can use this information in several ways. Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. Hence it is generally recommended that you host your own node for use with your wallet as there's much less data floating around the net.
 
 The most private way to connect to a remote node is via a hidden service, which we'll get into during other videos in this series. If you plan on going this route, you can skip over this video.
 Best practice is not timeless. There are always developments in the Monero ecosystem, all of which go toward creating a better user experience for the Monero community. 
@@ -164,9 +165,9 @@ The following two sections will cover linux and windows independently, so please
 
 ### FORWARDING THE P2P PORT - LINUX
 
-Forwarding the required port is relatively simple as a linux user. To do so, we're going to use the "Uncomplicated Firewall", [ufw](https://wiki.ubuntu.com/UncomplicatedFirewall) for short. This may be entirely new to you and if it is, the first thing you're going to want see if it's installed.
+Forwarding the required port is relatively simple as a linux user. To do so, we're going to use the "Uncomplicated Firewall", [ufw](https://wiki.ubuntu.com/UncomplicatedFirewall) for short. This may be entirely new to you and if it is, the first thing you're going to want see it's install.
 
-Use `ctrl+shift+t` to open up a new tab in your terminal and follow it up with the command `ufw --version`, if you don't get a printout with a version number you will need to install it, which you can do via your package manager.
+Use `ctrl+shift+t` to open up a new tab in your terminal and follow it up with the command `ufw --version`, if you don't get a printout with a version number, you will need to install it, which you can do via your package manager.
 
 To enable the ufw, we will use the command `sudo ufw enable`. Next, we're going to use the command `sudo ufw default deny incoming` and `sudo ufw default allow outgoing`. 
 
