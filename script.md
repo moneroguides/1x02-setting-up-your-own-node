@@ -164,9 +164,9 @@ The following two sections will cover linux and windows independently, so please
 
 ### FORWARDING THE P2P PORT - LINUX
 
-Forwarding the required port is relatively simple as a linux user. To do so, we're going to use the "Uncomplicated Firewall", [ufw](https://wiki.ubuntu.com/UncomplicatedFirewall) for short. This may be entirely new to you and if it is, the first thing you're going to want see it's install.
+Forwarding the required port is relatively simple as a linux user. To do so, we're going to use the "Uncomplicated Firewall", [ufw](https://wiki.ubuntu.com/UncomplicatedFirewall) for short. This may be entirely new to you and if it is, the first thing you're going to want see if it's installed.
 
-Use `ctrl+shift+t` to open up a new tab in your terminal and follow it up with the command `ufw --version`, if you don't get a printout with a version number, you will need to install it, which you can do via your package manager.
+Use `ctrl+shift+t` to open up a new tab in your terminal and follow it up with the command `ufw --version`, if you don't get a printout with a version number you will need to install it, which you can do via your package manager.
 
 To enable the ufw, we will use the command `sudo ufw enable`. Next, we're going to use the command `sudo ufw default deny incoming` and `sudo ufw default allow outgoing`. 
 
