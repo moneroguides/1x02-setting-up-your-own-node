@@ -41,7 +41,7 @@ When you connect to remote nodes, it is possible for the host to obtain the foll
 
 That being said, if you are unable to run your own node for whatever reason, don't worry, just make sure you connect to a remote node hosted by someone you can trust. This is very important!
 
-Another thing to think about when connecting to remote nodes is that your internet service provider will be able to see that you're connecting to one and can use this information in several ways. Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. Hence it is generally recommended that you host your own node for use with your wallet as there's much less data floating around the net.
+Another thing to think about when connecting to remote nodes is that your internet service provider will be able to see that you're connecting to one. Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. Hence it is generally recommended that you host your own node for use with your wallet as there's much less data floating around the net.
 
 The most private way to connect to a remote node is via a hidden service, which we'll get into during other videos in this series. If you plan on going this route, you can skip over this video.
 Best practice is not timeless. There are always developments in the Monero ecosystem, all of which go toward creating a better user experience for the Monero community. 
