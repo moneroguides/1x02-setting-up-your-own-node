@@ -10,11 +10,10 @@
 
 Hello and welcome to the second video in the "Getting to grips with Monero" series.
 
-In this video we will be developing our understanding of nodes; one of, if not the most important piece of infrastructure in the Monero ecosystem.
+In this video we will be developing our understanding of nodes; the most important piece of infrastructure in the Monero ecosystem.
 
 We'll be discussing what they are, why they're important and demonstrating step-by-step how to set up your own, so let's get going!
 
-.....................................................
 
 ### WHAT IS A MONERO NODE?
 
@@ -22,14 +21,12 @@ Fundamentally a Monero node is a piece of hardware connected to the Internet whi
 
 Running your own node and connecting to the P2P network is kind of like downloading and seeding a torrent for all those who want to access it.
 
-Nodes are programmed to follow a certain set of rules which facilitate the running of the network. __A very important abstraction from these rules__ (too wordy?) is the consensus mechanism. It is through this mechanism that the legitimate history of the Monero blockhain is maintained.
+Nodes are programmed to follow a certain set of rules which facilitate the running of the network. An important abstraction from these rules is the consensus mechanism. It is through this mechanism that the legitimate history of the Monero blockhain is maintained.
 
 The greater the number of nodes in the network the more resilient it is against both denial of service attacks and network partitioning. 
 
-Nodes are typically separated into two categories, local and remote.
-Local nodes are those within your local network while remote nodes are those outside your local network.
+Nodes are typically separated into two categories, local and remote. Local nodes are those within your local network while remote nodes are those outside your local network.
 
-.....................................................
 
 ### REMOTE VS LOCAL
 
@@ -37,25 +34,36 @@ There are a few benefits to running a local node, the most notable of which is p
 
 When you connect to remote nodes, it is possible for the host to obtain the following details: Your IP address, the block height from which your wallet started synchronisation, the transaction IDs you broadcast and a list of decoys. Depending on your own privacy concerns, this might not be ideal.
 
-That being said, if you are unable to run your own node for whatever reason, don't worry, just make sure you connect to a remote node hosted by someone you can trust. This is very important!
+That being said, if you are unable to run your own node for whatever reason, don't worry, just make sure you connect to a remote node hosted by someone you can trust. This is very important! If you plan on going this route, you can skip over this video for now.
 
-Another thing to think about when connecting to remote nodes is that your internet service provider will be able to see that you're connecting to one. Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. Hence it is generally recommended that you host your own node for use with your wallet as there's much less data floating around the net.
+Another thing to think about when connecting to remote nodes is that your internet service provider will be able to see that you're connecting to one. Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. It is hence generally recommended that you host your own node for use with your wallet as there's much less data floating around the net.
 
-The most private way to connect to a remote node is via a hidden service, which we'll get into during other videos in this series. __If you plan on going this route, you can skip over this video.__ (should be mentioned earlier?)
+The most private way to connect to a remote node is via a hidden service, which we'll get into during other videos in this series. 
+
 Best practice is not timeless. There are always developments in the Monero ecosystem, all of which go toward creating a better user experience for the Monero community. 
 
-.....................................................
+
+### HARWARE RECOMMENDATIONS
+
+Running your node 24/7 is of most benifit to the Monero network and for most, it's not practical or environmentally friendly to run nodes on powerful and ineffcient machines.
+
+It is for this reason we would primarily like to reccomend the use of low powered and effcient architechture like the "system on chip" (SOC) designs from AMD and Intel.
+
+Generally speaking the Rasberry Pi and other ARM based systems would be ideal for something like this. However, it is in fact not the best platform for running the Monero daemon. This is because the hardware lacks support for the "Advanced Encryption Standard" (AES) instruction set. The major dissadvantage is drastically longer sync times. Typically, only systems with x86 architecture will benifit from this instruction set.
+
+The Monero daemon typically requires between 1 and 2 GB of memory to run. So any system should ideally have around 4GB of memory.
+
 
 ### DOWNLOADING THE MONERO SOFTWARE
 
 The software required to run a node can be found on the official [github repository](https://github.com/monero-project/monero/releases), the link for which can be found in the video description.
 
 If you followed all of the steps from our other video, 'importing public keys and verifying hashes', you should have already downloaded and verified these files.
+
 If you haven't, please make sure you do that now. You will find it in the playlist labelled "Getting to grips with Monero"
 
 The next sections will cover the process for Linux and Windows independently, please use the time stamps below to get to the part that suits you.
 
-.....................................................
 
 ### LINUX - GUIDE
 
@@ -67,13 +75,12 @@ You'll find the commands used in the description below, feel free to copy and pa
 
 Before we execute this command, let's have a little look at what we're about to do. Firstly, we're making a directory called "monerod", in the users directory (/home/"USERNAME"), then we're using "tar" to unpack the compressed file into the directory we just created.
 
-Be aware, if you're using a raspberry pi or similar, you may well need the ARM version of the software. You should also note, that the raspberry pi is not such a good platform for running the Monero daemon due to it lacking the AES instruction set. Other boards such as the RockPro64 work better but even better than that would be to just use an old i5 or i7!
+Be aware, if you're using a raspberry pi or similar, you may well need the ARM version of the software.
 
 Now, let's run that by hitting enter.
 
 If we head back to our file explorer, we can see that this operation was successful. We now have a new directory and all of the files have been extracted inside it.
 
-.....................................................
 
 ### WINDOWS - GUIDE
 
@@ -88,7 +95,6 @@ Now return to the monerod folder when you're done.
 As windows users it's best to add a rule to your virus and threat protection settings to avoid any complications when running your node.
 To do this we'll need to go to the virus and threat protection settings. You can find this by typing it in the search bar or opening the start menu and typing in `virus`. Next, under Virus and Threat Protection Settings, click on Manage Settings. Scroll down until you see the "Exclusions" Section and choose "Add or remove exclusions". Click "Add an exclusion", choose "folder" and then navigate to the folder that you just created in the root directory.
 
-.....................................................
 
 ### CREATING A CONFIG FILE
 
@@ -103,7 +109,6 @@ You'll notice quite a few "#" symbols in this text. These are comments. Every ti
 
 There are a lot of different settings you can apply to the daemon and the [MoneroDocs](https://monerodocs.org/interacting/monerod-reference) web page is a great resource for finding the things you want.
 
-.....................................................
 
 ### TO PRUNE OR NOT TO PRUNE
 
@@ -119,7 +124,6 @@ To set the location of the blockchain you need to edit everything after the **=*
 
 If you want to download a pruned copy of the blockchain we need to add a few more lines, first I'm going to add a subheading starting with **#** called Custom, this way i remember that I added the following lines myself. Underneath we're going to add `sync-pruned-blocks=1` and `prune-blockchain=1`. The value **1** indicates we want to enable this option. If you want to disable them, you can either add a **#** to the start of the line to comment it out or change **1** to **0**.
 
-.....................................................
 
 ### FINALISING OUR CONFIG FILE
 
@@ -135,12 +139,11 @@ Being able to change this port number is great if you cannot forward a certain p
 
 The other process on the list is the Monero RPC. RPC stands for remote procedure call and is the method used for communication between wallets and nodes. We're not going to go into too much detail in this video, but it is possible for you to allow external connections. Running an RPC service is certainly helpful for those who don't run their own node, but it exposes an entirely different part of the Monero codebase to the internet. As many of you will be setting this up on your own personal computer, we advise against this for now.
 
-__To save time in this video we're going to skip over the next two sections. If you're interested in what they do, please check out the monerodocs for more info.__ (???)
+To save time in this video we're going to skip over the next two sections in the config file. If you're interested in what they do, please check out the monerodocs for more info.
 
 Finally we move onto network traffic. How many peers you connect to and the bandwidth you allocate is totally customisable. The more outpeers and the the down rate will directly contribute to your initial sync. So I suggest you have these pretty high to begin with. You can always change things later on to suit your circumstances. 
 I'm going to leave all of this as default for now.
 
-.....................................................
 
 ### SPINNING UP YOUR NODE
 
@@ -167,11 +170,10 @@ To do this, we're going to have to set special rules in the firewall to allow in
 
 The following two sections will cover linux and windows independently, so please skip to the appropriate section. As for routers, please take a look at your manufacturers recommendations. If you're currently using a vpn, please take a look at our video **Using Monero With Enhanced Privacy** as things will be a little bit different for you. 
 
-.....................................................
 
 ### FORWARDING THE P2P PORT - LINUX
 
-Forwarding the required port is relatively simple as a linux user. To do so, we're going to use the [Uncomplicated Firewall](https://wiki.ubuntu.com/UncomplicatedFirewall), ufw for short. This may be entirely new to you and if it is, __the first thing you're going to want see it's install.__ (???)
+Forwarding the required port is relatively simple as a linux user. To do so, we're going to use the [Uncomplicated Firewall](https://wiki.ubuntu.com/UncomplicatedFirewall), ufw for short. This may be entirely new to you and if it is, you will first want to see if it's installed.
 
 Open up a new terminal and enter `ufw --version`. If you don't get a printout with a version number you'll need to install it, which you can do via your package manager.
 
@@ -184,7 +186,9 @@ Now let's enter these three commands:
 3. Allow all outgoing connections:
    `sudo ufw default allow outgoing`
    
-This isn't ideal right now as you won't be able to use your browser or download system updates. __For this reason you're going to want to allow ports__ (How is this achieved?) 443 (tcp-https) and 80 (tcp-http).
+This isn't ideal right now as you won't be able to use your browser or download system updates. For this reason you're going to want to allow ports 443 (tcp-https) and 80 (tcp-http). To do this you need to run the command:
+
+`sudo ufw allow 80/tcp` & `sudo ufw allow 443/tcp`
 
 Now that the ufw has been enabled and your firewall has been hardened, your computer is a little more secure and we're ready to make an exception for the Monero daemon:
 
@@ -194,7 +198,6 @@ This command will allow traffic to access your monero daemon, you may remember t
 
 Well, that's all there is to it for your PC. The only thing left to do is forward the port on your router. Every router is different, so please have a look at your manufacturer's instructions for this step.
 
-.....................................................
 
 ### FORWARDING THE P2P PORT - WINDOWS
 
@@ -210,7 +213,6 @@ That's it, we've opened up our port in wodows for the Monero daemon to communica
 
 The only thing left to do is forward the port on your router. Every router is different, so please have a look at your manufacturers instructions for this step.
 
-.....................................................
 
 ### CHECKING OUR PROGRESS
 
@@ -229,7 +231,6 @@ As the initial sync is complete, I'm going to limit my traffic. I'm going to off
 
 Once again, please take a look at [MoneroDocs](https://monerodocs.org/interacting/monerod-reference/#commands) for more documentation. It has lots of useful information and will help you to tune your node!
 
-.....................................................
 
 ### OUTRO
 
