@@ -38,7 +38,9 @@ That being said, if you are unable to run your own node for whatever reason, don
 
 Another thing to think about when connecting to remote nodes and when hosting your own, is that your internet service providers (ISPs) will be able recognise this. Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. Hosting your own node for use with your wallet simply reduces the amount data floating around the net as Monero's Dandelion++ technology obfuscates the origin of transactions.
 
-Before you continue: be sure that you understand the risks, if any, associated with hosting your own node. These may be different depending on where in the world you live. The most private way to interact with the Monero network is using The Onion Routing (Tor) Project or Invisible Internet Project (I2P), which we'll cover during other videos in this series.
+Before you continue: be sure that you understand the risks, if any, associated with hosting your own node. These may be different depending on where in the world you live. 
+
+In order to hide your use of the Monero network, the best ways of doing so are through a trustworthy virtual proxy networks (VPNs), The Onion Routing (Tor) Project or Invisible Internet Project (I2P). Please skip to the next video if you have any concerns; if you still want to host your own node and support the network, we will be demonstrating a method via VPN in the final video **Using Monero with enhanced privacy**.
 
 Best practice is not timeless. There are always developments in the Monero ecosystem, all of which go toward creating a better user experience for the Monero community.
 
@@ -168,7 +170,9 @@ This is a pretty lengthy process so be prepared. You can take a break from it wh
 Currently we are only leaching the blockchain from the P2P network and sharing is caring after all, so we'll want to enable seeding as well.
 To do this, we're going to have to set special rules in the firewall to allow incoming connections for the p2p port (18080) on both our computers and routers.
 
-The following two sections will cover linux and windows independently, so please skip to the appropriate section. As for routers, please take a look at your manufacturers recommendations. If you're currently using a vpn, please take a look at our video **Using Monero With Enhanced Privacy** as things will be a little bit different for you. 
+This may or may not be technically possible for you. This will all depend on your ISP and aministrative access to your router.
+
+The following two sections will cover linux and windows independently, so please head to the appropriate section. As for routers, please take a look at your manufacturers recommendations. If you're currently using a VPN, please take a look at our video **Using Monero With Enhanced Privacy** as things will be a little bit different for you.
 
 
 ### FORWARDING THE P2P PORT - LINUX
