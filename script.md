@@ -36,11 +36,11 @@ When you connect to remote nodes, it is possible for the host to obtain the foll
 
 That being said, if you are unable to run your own node for whatever reason, don't worry, just make sure you connect to a remote node hosted by someone you can trust. This is very important! If you plan on going this route, you can skip over this video for now.
 
-Another thing to think about when connecting to remote nodes is that your internet service provider will be able to see that you're connecting to one. Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. It is hence generally recommended that you host your own node for use with your wallet as there's much less data floating around the net.
+Another thing to think about when connecting to remote nodes and when hosting your own, is that your internet service providers (ISPs) will be able recognise this. Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. Hosting your own node for use with your wallet simply reduces the amount data floating around the net as Monero's Dandelion++ technology obfuscates the origin of transactions.
 
-The most private way to connect to a remote node is via a hidden service, which we'll get into during other videos in this series. 
+Before you continue: be sure that you understand the risks, if any, associated with hosting your own node. These may be different depending on where in the world you live. The most private way to interact with the Monero network is using The Onion Routing (Tor) Project or Invisible Internet Project (I2P), which we'll cover during other videos in this series.
 
-Best practice is not timeless. There are always developments in the Monero ecosystem, all of which go toward creating a better user experience for the Monero community. 
+Best practice is not timeless. There are always developments in the Monero ecosystem, all of which go toward creating a better user experience for the Monero community.
 
 
 ### HARWARE RECOMMENDATIONS
