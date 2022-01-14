@@ -53,7 +53,9 @@ It is for this reason we would primarily like to reccomend the use of low powere
 
 Generally speaking the Rasberry Pi and other ARM based systems would be ideal for something like this. However, it is in fact not the best platform for running the Monero daemon. This is because the hardware lacks support for the "Advanced Encryption Standard" (AES) instruction set. The major dissadvantage is drastically longer sync times. Typically, only systems with x86 architecture will benifit from this instruction set.
 
-The Monero daemon typically requires between 1 and 2 GB of memory to run. So any system should ideally have around 4GB of memory.
+The Monero daemon can require between 1 and 2 GB of memory to run. So any system should ideally have around 4GB of memory.
+
+If you are planning on using a Raspberry Pi and are feeling adventurous, we would recommend this [guide](https://moneroecosystem.org/pinode-xmr/) published by the good folk in the monero-ecosystem work-group.
 
 
 ### DOWNLOADING THE MONERO SOFTWARE
