@@ -222,7 +222,7 @@ The only thing left to do is forward the port on your router. Every router is di
 
 ### CHECKING OUR PROGRESS
 
-On a 100Mbit connection and writing to an ssd, it's taken me a little over a day to sync the entire blockchain. Once it's synced you should see the message "SYNCHRONISED OK".
+On a 100Mbit connection and writing to an ssd, it's taken me a little over a day to sync the entire blockchain. Once it's synced you should see the message **SYNCHRONISED OK**.
 
 We can confirm the status of our nodes by using the command `status`. This shows the height of the blockchain and a few other bits, including the number of incoming and outgoing connections.
 
