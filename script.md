@@ -131,7 +131,7 @@ If you want to download a pruned copy of the blockchain we need to add a few mor
 
 ### FINALISING OUR CONFIG FILE
 
-Before we take a look at the rest of the file, we're going to add one more line to our custom list; `enable-dns-blocklist=1`. Enabling the block list prevents connections to known bad actors and is centrally maintained by the Monero core team.
+Before we take a look at the rest of the file, we're going to add two more lines to our custom list; `enable-dns-blocklist=1` and `no-zmq=1`. Enabling the block list prevents connections to known bad actors and is centrally maintained by the Monero core team. The **no-zmq** option disables a particular interface we will no be using, limiting the potential attack the surface.
 
 The next thing on the list is the location you want the Monero daemon to save logs. I'm going to create a new folder called "logs" in our "monerod" directory and point it to that. That way, if anything goes wrong, we can quickly and easily investigate.
 
