@@ -34,9 +34,11 @@ There are a few benefits to running a local node, the most notable of which is p
 
 When you connect to remote nodes, it is possible for the host to obtain the following details: Your IP address, the block height from which your wallet started synchronisation, the transaction IDs you broadcast and a list of decoys. Depending on your own privacy concerns, this might not be ideal.
 
-That being said, if you are unable to run your own node for whatever reason, don't worry, just make sure you connect to a remote node hosted by someone you can trust. This is very important! If you plan on going this route, you can skip over this video for now.
+That being said, if you are unable to run your own node for whatever reason, you can skip over this video for now. Just make sure you connect to a remote node hosted by someone you can trust. This is very important!
 
-Another thing to think about when connecting to remote nodes and when hosting your own, is that your internet service providers (ISPs) will be able recognise this. Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. Hosting your own node for use with your wallet simply reduces the amount data floating around the net as Monero's Dandelion++ technology obfuscates the origin of transactions. Check out [this article](https://localmonero.co/knowledge/monero-dandelion) for more infomation.
+Another thing to think about, either when connecting to remote nodes or hosting your own, is that your internet service provider (ISP) will be able recognise this. Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. 
+
+Hosting your own node for use with your wallet simply reduces the amount data floating around the net. Monero's Dandelion++ technology does the hard part by obfuscating the origin of transactions. [This article](https://localmonero.co/knowledge/monero-dandelion) from the folk at LocalMonero goes into more detail.
 
 Before you continue: be sure that you understand the risks, if any, associated with hosting your own node. These may be different depending on where in the world you live. 
 
