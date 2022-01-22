@@ -73,7 +73,7 @@ The next sections will cover the process for Linux and Windows independently, pl
 
 ### LINUX - GUIDE
 
-If you are using a linux distro like I am currently, then you're going to need to open a command line terminal. I'm going to navigate the right directory using the terminal and the change directory command: `cd`. If you;re using the file explorer, head to the right folder and `right click` and select "Open in Terminal".
+If you are using a linux distro like I am currently, then you're going to need to open a command line terminal. I'm going to navigate the right directory using the terminal and the change directory command: `cd`. You can then use `ls` to check you're in the right place. If you're using the file explorer, head to the right folder and `right click` and select "Open in Terminal".
 
 You'll find the commands used in the description below, feel free to copy and paste them into your terminal window. To paste into the terminal window you will probably need to use the `shift` key in addtion to `ctrl` to copy (`ctrl + shift + c`) and paste (`ctrl + shift + v`). 
 
@@ -85,7 +85,7 @@ Be aware, if you're using a raspberry pi or similar, you may well need the ARM v
 
 Now, let's run that by hitting enter.
 
-If we head back to our file explorer, we can see that this operation was successful. We now have a new directory and all of the files have been extracted inside it.
+If we use the `cd` command and navigate to the newly created directory, se can see the extracted folder using the `ls` command once more.
 
 
 ### WINDOWS - GUIDE
@@ -135,7 +135,7 @@ If you want to download a pruned copy of the blockchain we need to add a few mor
 
 Before we take a look at the rest of the file, we're going to add two more lines to our custom list; `enable-dns-blocklist=1` and `no-zmq=1`. Enabling the block list prevents connections to known bad actors and is centrally maintained by the Monero core team. The **no-zmq** option disables a particular interface we will no be using, limiting the potential attack the surface.
 
-The next thing on the list is the location you want the Monero daemon to save logs. I'm going to create a new folder called "logs" in our "monerod" directory and point it to that. That way, if anything goes wrong, we can quickly and easily investigate.
+The next thing on the list is the location you want the Monero daemon to save logs. I'm going to change this to the "monerod" directory we've been using. That way, if anything goes wrong, we can quickly and easily investigate.
 
 Before moving onto the next part of the config it would be good if we address a few things first. Every time you start the Monero daemon it starts several processes which use different ports to run. The first of these is the P2P service. This is how your node communicates with the rest of the network and keeps itself up to date. Currently the IP address is bound to **0.0.0.0**, this is the best option if you haven't got any kind of custom networking. 
 
