@@ -73,7 +73,7 @@ The next sections will cover the process for Linux and Windows independently, pl
 
 ### LINUX - GUIDE
 
-If you are using a linux distro like I am currently, then you're going to need to open a command line terminal. I'm going to navigate the right directory using the terminal and the shange directory command: `cd`. If you;re using the file explorer, head to the right folder and `right click` and select "Open in Terminal".
+If you are using a linux distro like I am currently, then you're going to need to open a command line terminal. I'm going to navigate the right directory using the terminal and the change directory command: `cd`. If you;re using the file explorer, head to the right folder and `right click` and select "Open in Terminal".
 
 You'll find the commands used in the description below, feel free to copy and paste them into your terminal window. To paste into the terminal window you will probably need to use the `shift` key in addtion to `ctrl` to copy (`ctrl + shift + c`) and paste (`ctrl + shift + v`). 
 
