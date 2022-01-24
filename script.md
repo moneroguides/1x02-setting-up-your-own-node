@@ -135,7 +135,9 @@ If you want to download a pruned copy of the blockchain we need to add a few mor
 
 Before we take a look at the rest of the file, we're going to add two more lines to our custom list; `enable-dns-blocklist=1` and `no-zmq=1`. Enabling the block list prevents connections to known bad actors and is centrally maintained by the Monero core team. The **no-zmq** option disables a particular interface we will no be using, limiting the potential attack the surface.
 
-The next thing on the list is the location you want the Monero daemon to save logs. I'm going to change this to the "monerod" directory we've been using. That way, if anything goes wrong, we can quickly and easily investigate.
+The first setting in the default config sets the location of the database file which will be created to store the blockchain data. I'm going to set it to save in the "monerod" folder we created earlier. I'm also going to delete this "." sto prevent the folder from being hidden.
+
+The next thing on the list is the location you want the Monero daemon to save logs. I'm going to change this to the "monerod" as well. That way, if anything goes wrong, we can quickly and easily investigate.
 
 Before moving onto the next part of the config it would be good if we address a few things first. Every time you start the Monero daemon it starts several processes which use different ports to run. The first of these is the P2P service. This is how your node communicates with the rest of the network and keeps itself up to date. Currently the IP address is bound to **0.0.0.0**, this is the best option if you haven't got any kind of custom networking. 
 
