@@ -79,13 +79,11 @@ You'll find the commands used in the description below, feel free to copy and pa
 
 `mkdir ~/monerod; tar -xjf monero-linux-x64-v*.tar.bz2 -C ~/monerod`
 
-Before we execute this command, let's have a little look at what we're about to do. Firstly, we're making a directory called "monerod", in the users directory (/home/"USERNAME"), then we're using "tar" to unpack the compressed file into the directory we just created.
-
-Be aware, if you're using a raspberry pi or similar, you may well need the ARM version of the software.
+Before we execute this command, let's have a little look at what we're about to do. Firstly, we're making a directory called "monerod", in the users directory (/home/"USERNAME"), then we're using "tar" to unpack the compressed folder into the directory we just created.
 
 Now, let's run that by hitting enter.
 
-If we use the `cd` command and navigate to the newly created directory, se can see the extracted folder using the `ls` command once more.
+If we use the `cd` command and navigate to the newly created directory, we can see the extracted folder using the `ls` command once more.
 
 
 ### WINDOWS - GUIDE
@@ -106,12 +104,12 @@ To do this we'll need to go to the virus and threat protection settings. You can
 
 Creating a config file is a pretty simple way to tailor the Monero daemon to suit your own needs and circumstances. There is no default config file, so we'll be doing this from scratch using the documents hosted on [monerodocs.org](www.monerodocs.org) as a reference.
 
-Open the folder we extracted earlier and create a file called "bitmonero.conf", this can be opened and edited with any text editor so we won't be covering OS specific details here.
+In the monerod folder create a file called "bitmonero.conf", this can be opened and edited with any text editor so we won't be covering OS specific details here.
 
 We're going to use [the example file from the Monero docs website](https://monerodocs.org/interacting/monero-config-file/) as a template to work from.
-Scroll down to the subheading "Examples" and copy the example to your clipboard using the provided button. Paste it into your text editor.
+Please click on the subheading "Examples" and copy the example to your clipboard using the provided button. Now paste it into your text editor.
 
-You'll notice quite a few "#" symbols in this text. These are comments. Every time the Monero daemon comes across one, it ignores it and skips to the next line. It's a really easy way for us to leave information and comments in the file without them interfering with its operation. If you come across a setting you'd like to implement, simply delete the "#" symbol.
+You'll notice quite a few "#" symbols in this text. These are comments. Every time the Monero daemon comes across one, it ignores it and skips to the next line. It's a really easy way for us to leave information and comments in the file without them interfering with its operation.
 
 There are a lot of different settings you can apply to the daemon and the [MoneroDocs](https://monerodocs.org/interacting/monerod-reference) web page is a great resource for finding the things you want.
 
@@ -135,9 +133,9 @@ If you want to download a pruned copy of the blockchain we need to add a few mor
 
 Before we take a look at the rest of the file, we're going to add two more lines to our custom list; `enable-dns-blocklist=1` and `no-zmq=1`. Enabling the block list prevents connections to known bad actors and is centrally maintained by the Monero core team. The **no-zmq** option disables a particular interface we will no be using, limiting the potential attack the surface.
 
-The first setting in the default config sets the location of the database file which will be created to store the blockchain data. I'm going to set it to save in the "monerod" folder we created earlier. I'm also going to delete this "." sto prevent the folder from being hidden.
+The first setting in the default config sets the location of the database file which will be created to store the blockchain data. I'm going to set it so that it saves it to a new folder called data in the "monerod" folder we created earlier. To do this we can simply replace this location with "data".
 
-The next thing on the list is the location you want the Monero daemon to save logs. I'm going to change this to the "monerod" as well. That way, if anything goes wrong, we can quickly and easily investigate.
+The next thing on the list is the location you want the Monero daemon to save logs. I'm going to change this to the same data folder by deleting everything that comes before section that reads "monerod.log". That way, if anything goes wrong, we can quickly and easily investigate.
 
 Before moving onto the next part of the config it would be good if we address a few things first. Every time you start the Monero daemon it starts several processes which use different ports to run. The first of these is the P2P service. This is how your node communicates with the rest of the network and keeps itself up to date. Currently the IP address is bound to **0.0.0.0**, this is the best option if you haven't got any kind of custom networking. 
 
@@ -155,17 +153,19 @@ I'm going to leave all of this as default for now.
 
 ### SPINNING UP YOUR NODE
 
+The next thing we're going to want to do is change the location of the monerod program. You can do this through the file explorer or terminal, it's up to you. What you need to make sure, is that either the monerod binary or monerod.exe is now located in the "monerod" folder. Each time you download an updated copy of the coftware, you will need to replace this file
+
 After all our work we can start our node for the very first time. Navigate to the folder that the monderod program is located in, then:
 
 **for Windows:**
 - `shift+right click`
 - open up a powershell
-- type  `./monerod.exe --config-file=./bitmonero.conf `
+- type  `./monerod.exe --config-file=./bitmonero.conf`
 
 **for Linux:**
 - `right-click`
 - open a terminal
-- type `./monerod --config-file=./bitmonero.conf `
+- type `./monerod --config-file=./bitmonero.conf`
 
 Now let's hit enter!
 
