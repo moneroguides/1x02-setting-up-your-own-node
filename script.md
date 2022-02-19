@@ -10,7 +10,7 @@
 
 Hello and welcome to the second video in the "Getting to grips with Monero" series.
 
-In this video we will be developing our understanding of nodes; the most important piece of infrastructure in the Monero ecosystem.
+In this video we'll be developing our understanding of nodes; the most important piece of infrastructure in the Monero ecosystem.
 
 We'll be discussing what they are, why they're important and demonstrating step-by-step how to set up your own, so let's get going!
 
@@ -21,20 +21,20 @@ Fundamentally a Monero node is a piece of hardware connected to the Internet whi
 
 Running your own node and connecting to the P2P network is kind of like downloading and seeding a torrent for all those who want to access it.
 
-Nodes are programmed to follow a certain set of rules which facilitate the running of the network. An important abstraction from these rules is the consensus mechanism. It is through this mechanism that the legitimate history of the Monero blockhain is maintained.
+Nodes are programmed to follow a certain set of rules which facilitate the running of the network. An important abstraction from these rules is the consensus mechanism. It's through this mechanism that the legitimate history of the Monero blockhain is maintained.
 
-The greater the number of nodes in the network the more resilient it is against both denial of service attacks and network partitioning. 
+The greater the number of nodes in the network, the more resilient it is against both denial of service attacks and network partitioning. 
 
-Nodes are typically separated into two categories, local and remote. Local nodes are those within your local network while remote nodes are those outside your local network.
+Nodes are typically separated into two categories: local and remote. Local nodes are those within your local network while remote nodes are those outside your local network.
 
 
 ### REMOTE VS LOCAL
 
 There are a few benefits to running a local node, the most notable of which is privacy! 
 
-When you connect to remote nodes, it is possible for the host to obtain the following details: Your IP address, the block height from which your wallet started synchronisation, the transaction IDs you broadcast and a list of decoys. Depending on your own privacy concerns, this might not be ideal.
+When you connect to remote nodes, it's possible for the host to obtain the following details: Your IP address, the block height from which your wallet started synchronisation, the transaction IDs you broadcast and a list of decoys. Depending on your own privacy concerns, this might not be ideal.
 
-That being said, if you are unable to run your own node for whatever reason, you can skip over this video for now. Just make sure you connect to a remote node hosted by someone you can trust. This is very important!
+That being said, if you're unable to run your own node for whatever reason, you can skip over this video for now. Just make sure you connect to a remote node hosted by someone you can trust. This is very important!
 
 Another thing to think about, either when connecting to remote nodes or hosting your own, is that your internet service provider (ISP) will be able recognise this. Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. 
 
@@ -42,22 +42,22 @@ Hosting your own node for use with your wallet simply reduces the amount data fl
 
 Before you continue: be sure that you understand the risks, if any, associated with hosting your own node. These may be different depending on where in the world you live. 
 
-In order to hide your use of the Monero network, the best ways of doing so are through a trustworthy virtual proxy networks (VPNs), The Onion Routing (Tor) Project or Invisible Internet Project (I2P). Please skip to the next video if you have any concerns; if you still want to host your own node and support the network, we will be demonstrating a method via VPN in the final video **Using Monero with enhanced privacy**.
+In order to hide your use of the Monero network, the best ways of doing so are through the use of either a trustworthy virtual proxy network (VPN), The Onion Routing Project (Tor) or Invisible Internet Project (I2P). Please skip to the next video if you have any concerns; if you still want to host your own node and support the network, we'll be demonstrating a method via VPN in the final video **Using Monero with enhanced privacy**.
 
 Best practice is not timeless. There are always developments in the Monero ecosystem, all of which go toward creating a better user experience for the Monero community.
 
 
 ### HARWARE RECOMMENDATIONS
 
-Running your node 24/7 is of most benifit to the Monero network and for most, it's not practical or environmentally friendly to run nodes on powerful and ineffcient machines.
+Running your node 24/7 is of most benefit to the Monero network and for most, it's not practical or environmentally friendly to run nodes on powerful and inefficient machines.
 
-It is for this reason we would primarily like to reccomend the use of low powered and effcient architechture like the "system on chip" (SOC) designs from AMD and Intel.
+It's for this reason we'd recommend the use of low powered, efficient architechture like the "system on a chip" (SOC) designs from AMD and Intel.
 
-Generally speaking the Rasberry Pi and other ARM based systems would be ideal for something like this. However, it is in fact not the best platform for running the Monero daemon. This is because the hardware lacks support for the "Advanced Encryption Standard" (AES) instruction set. The major dissadvantage is drastically longer sync times. Typically, only systems with x86 architecture will benifit from this instruction set.
+Generally speaking the Rasberry Pi and other ARM based systems would be ideal for something like this. However, it is in fact not the best platform for running the Monero daemon. This is because the hardware lacks support for the "Advanced Encryption Standard" (AES) instruction set. The major dissadvantage is drastically longer sync times. Typically, only systems with x86 architecture will benefit from this instruction set.
 
 The Monero daemon can require between 1 and 2 GB of memory to run. So any system should ideally have around 4GB of memory.
 
-If you are planning on using a single board computer like the Raspberry Pi and are feeling adventurous, we would recommend this [guide](https://moneroecosystem.org/pinode-xmr/) published by the good folk from the monero-ecosystem work-group. be aware that there may be a more up to date version when you watch this video.
+If you're planning on using a single board computer like the Raspberry Pi and are feeling adventurous, we would recommend [this guide](https://moneroecosystem.org/pinode-xmr/) published by the good folk from the monero-ecosystem work-group. Be aware that there may be a more up to date version when you watch this video.
 
 
 ### DOWNLOADING THE MONERO SOFTWARE
@@ -66,16 +66,16 @@ The software required to run a node can be found on the official [github reposit
 
 If you followed all of the steps from our other video, 'importing public keys and verifying hashes', you should have already downloaded and verified these files.
 
-If you haven't, please make sure you do that now. You will find it in the playlist labelled "Getting to grips with Monero".
+If you haven't, please make sure you do that now. You'll find it in the playlist labelled "Getting to grips with Monero".
 
 The next sections will cover the process for Linux and Windows independently, please use the time stamps below to get to the part that suits you.
 
 
 ### LINUX - GUIDE
 
-If you are using a linux distro like I am currently, then you're going to need to open a command line terminal. I'm going to navigate the right directory using the terminal and the change directory command: `cd`. You can then use `ls` to check you're in the right place. If you're using the file explorer, head to the right folder and `right click` and select "Open in Terminal".
+If you're using Linux like I am currently, then you're going to need to open a command line terminal. I'm going to navigate the right directory using the terminal and the change directory command: `cd`. You can then use `ls` to check you're in the right place. If you're using the file explorer, head to the right folder and `right click` and select "Open in Terminal".
 
-You'll find the commands used in the description below, feel free to copy and paste them into your terminal window. To paste into the terminal window you will probably need to use the `shift` key in addtion to `ctrl` to copy (`ctrl + shift + c`) and paste (`ctrl + shift + v`). 
+You'll find the commands used in the description below, feel free to copy and paste them into your terminal window. To paste into the terminal window you'll probably need to use the `shift` key in addtion to `ctrl` to copy (`ctrl + shift + c`) and paste (`ctrl + shift + v`). 
 
 `mkdir ~/monerod; tar -xjf monero-linux-x64-v*.tar.bz2 -C ~/monerod`
 
@@ -88,9 +88,9 @@ If we use the `cd` command and navigate to the newly created directory, we can s
 
 ### WINDOWS - GUIDE
 
-The first thing we're going to do is move (cut) the zip file we've downloaded. To do this, we're going to highlight the zip file and press `ctrl+x`
+The first thing we're going to do is move (cut) the zip file we've downloaded. To do this, we're going to highlight the zip file and press `ctrl + x`
 
-Now we're going to navigate to the `C:` drive and create a folder called "monerod". Double click on the new folder and paste the zip file inside using `ctrl+v`
+Now we're going to navigate to the `C:` drive and create a folder called "monerod". Double click on the new folder and paste the zip file inside using `ctrl + v`
 
 There are lots of ways to extract the contents of this zip file, and one of the easiest is to double click on the zip file, then drag the folder and drop it on the address bar, on to the name of the parent folder.
 
@@ -169,11 +169,11 @@ After all our work we can start our node for the very first time. Using the term
 
 Now let's hit enter!
 
-As you can see from the messages, we are now syncing the blockchain to your computer. 
+As you can see from the messages, we're now syncing the blockchain to your computer. 
 
 This is a pretty lengthy process so be prepared. You can take a break from it whenever you like by using the command `ctrl+c` to cancel the operation. To start it again from where you left off, simply follow the same process.
 
-Currently we are only leaching the blockchain from the P2P network and sharing is caring after all, so we'll want to enable seeding as well.
+Currently we're only leaching the blockchain from the P2P network and sharing is caring after all, so we'll want to enable seeding as well.
 To do this, we're going to have to set special rules in the firewall to allow incoming connections for the p2p port (18080) on both our computers and routers.
 
 This may or may not be technically possible for you. This will all depend on your ISP and aministrative access to your router.
