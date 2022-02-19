@@ -153,9 +153,9 @@ I'm going to leave all of this as default for now.
 
 ### SPINNING UP YOUR NODE
 
-The next thing we're going to want to do is change the location of the monerod program. You can do this through the file explorer or terminal, it's up to you. What you need to make sure, is that either the monerod binary or monerod.exe is now located in the "monerod" folder. Each time you download an updated copy of the coftware, you will need to replace this file
+The next thing we're going to want to do is change the location of the monerod program. You can do this through the file explorer or terminal, it's up to you. You need to be sure that either the monerod binary or monerod.exe is now located in the "monerod" folder alongside the config. Each time you download an updated copy of the software, you will need to replace this file.
 
-After all our work we can start our node for the very first time. Navigate to the folder that the monderod program is located in, then:
+After all our work we can start our node for the very first time. Using the terminal, navigate to the folder that the monderod program is located in, then:
 
 **for Windows:**
 - `shift+right click`
