@@ -1,23 +1,25 @@
-### Prerequisites:
+# Getting to Grips with Monero, Video 2 
+
+## PREREQUISITES
 
 * gpg2 (Linux)
-* Kleopatra/gpg4win (windows)
-* At least 50GB of disk space
+* Kleopatra / gpg4win (Windows)
+* At least 50 GB disk space
 
-.....................................................
+<hr/>
 
 ### INTRO
 
-Hello and welcome to the second video in the "Getting to grips with Monero" series.
+Hello and welcome to the second video in the "Getting to grips with Monero" series
 
-In this video we will be developing our understanding of nodes; the most important piece of infrastructure in the Monero ecosystem.
+In this video, we will be developing our understanding of nodes, the most important piece of infrastructure in the Monero ecosystem
 
 We'll be discussing what they are, why they're important and demonstrating step-by-step how to set up your own, so let's get going!
 
 
 ### WHAT IS A MONERO NODE?
 
-Fundamentally a Monero node is a piece of hardware connected to the Internet which both stores a copy of the blockchain and runs the Monero software.
+Fundamentally a Monero node is a piece of hardware connected to the Internet which both stores a copy of the blockchain and runs the Monero software
 
 Running your own node and connecting to the P2P network is kind of like downloading and seeding a torrent for all those who want to access it.
 
@@ -36,20 +38,20 @@ When you connect to remote nodes, it is possible for the host to obtain the foll
 
 That being said, if you are unable to run your own node for whatever reason, you can skip over this video for now. Just make sure you connect to a remote node hosted by someone you can trust. This is very important!
 
-Another thing to think about, either when connecting to remote nodes or hosting your own, is that your internet service provider (ISP) will be able recognise this. Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. 
+Another thing to think about, either when connecting to remote nodes or hosting your own, is that your Internet Service Provider (ISP) will be able to recognise this. Although this information doesn't deanonymise your address or your transaction, it may still be used in a malicious way. 
 
-Hosting your own node for use with your wallet simply reduces the amount data floating around the net. Monero's Dandelion++ technology does the hard part by obfuscating the origin of transactions. [This article](https://localmonero.co/knowledge/monero-dandelion) from the folk at LocalMonero goes into more detail.
+Hosting your own node for use with your wallet simply reduces the amount of data floating around the net. Monero's Dandelion++ technology does the hard part by obfuscating the origin of transactions. [This article](https://localmonero.co/knowledge/monero-dandelion) from the folks at LocalMonero goes into more detail.
 
-Before you continue: be sure that you understand the risks, if any, associated with hosting your own node. These may be different depending on where in the world you live. 
+Before you continue, be sure that you understand the risks, if any, associated with hosting your own node. These may be different depending on where in the world you live. 
 
-In order to hide your use of the Monero network, the best ways of doing so are through a trustworthy virtual proxy networks (VPNs), The Onion Routing (Tor) Project or Invisible Internet Project (I2P). Please skip to the next video if you have any concerns; if you still want to host your own node and support the network, we will be demonstrating a method via VPN in the final video **Using Monero with enhanced privacy**.
+In order to hide your use of the Monero network, the best ways of doing so are through a trustworthy virtual proxy networks (VPNs), The Onion Routing (Tor) Project or Invisible Internet Project (I2P). Please skip to the next video if you have any concerns; if you still want to host your own node and support the network, we will be demonstrating a method via VPN in the final video **Using Monero with Enhanced Privacy**.
 
 Best practice is not timeless. There are always developments in the Monero ecosystem, all of which go toward creating a better user experience for the Monero community.
 
 
-### HARWARE RECOMMENDATIONS
+### HARDWARE RECOMMENDATIONS
 
-Running your node 24/7 is of most benifit to the Monero network and for most, it's not practical or environmentally friendly to run nodes on powerful and ineffcient machines.
+Running your node 24/7 is of most benefit to the Monero network and for most, it's not practical or environmentally friendly to run nodes on powerful and ineffcient machines.
 
 It is for this reason we would primarily like to reccomend the use of low powered and effcient architechture like the "system on chip" (SOC) designs from AMD and Intel.
 
@@ -57,7 +59,7 @@ Generally speaking the Rasberry Pi and other ARM based systems would be ideal fo
 
 The Monero daemon can require between 1 and 2 GB of memory to run. So any system should ideally have around 4GB of memory.
 
-If you are planning on using a single board computer like the Raspberry Pi and are feeling adventurous, we would recommend this [guide](https://moneroecosystem.org/pinode-xmr/) published by the good folk from the monero-ecosystem work-group. be aware that there may be a more up to date version when you watch this video.
+If you are planning on using a single board computer like the Raspberry Pi and are feeling adventurous, we would recommend this [guide](https://moneroecosystem.org/pinode-xmr/) published by the good folks from the monero-ecosystem work-group. be aware that there may be a more up to date version when you watch this video.
 
 
 ### DOWNLOADING THE MONERO SOFTWARE
@@ -66,7 +68,7 @@ The software required to run a node can be found on the official [github reposit
 
 If you followed all of the steps from our other video, 'importing public keys and verifying hashes', you should have already downloaded and verified these files.
 
-If you haven't, please make sure you do that now. You will find it in the playlist labelled "Getting to grips with Monero".
+If you haven't, please make sure you do that now. You will find it in the playlist labelled "Getting to Grips with Monero".
 
 The next sections will cover the process for Linux and Windows independently, please use the time stamps below to get to the part that suits you.
 
@@ -106,7 +108,7 @@ Creating a config file is a pretty simple way to tailor the Monero daemon to sui
 
 In the monerod folder create a file called "bitmonero.conf", this can be opened and edited with any text editor so we won't be covering OS specific details here.
 
-We're going to use [the example file from the Monero docs website](https://monerodocs.org/interacting/monero-config-file/) as a template to work from.
+We're going to use [the example file](https://monerodocs.org/interacting/monero-config-file/) from MoneroDocs as a template to work from.
 Please click on the subheading "Examples" and copy the example to your clipboard using the provided button. Now paste it into your text editor.
 
 You'll notice quite a few "#" symbols in this text. These are comments. Every time the Monero daemon comes across one, it ignores it and skips to the next line. It's a really easy way for us to leave information and comments in the file without them interfering with its operation.
