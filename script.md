@@ -64,13 +64,13 @@ Generally speaking, the Rasberry Pi and other ARM-based (Advanced RISC Machine) 
 
 The Monero daemon requires 1 to 2 GB of memory to run, so pick a system with over 4 GB
 
-If you are planning on using a single board computer like the Raspberry Pi and are feeling adventurous, we would recommend following this [guide](https://moneroecosystem.org/pinode-xmr/) published by the good folks from the monero-ecosystem work-group.
+If you are planning on using a single board computer like the Raspberry Pi and are feeling adventurous, we would recommend following this [guide](https://moneroecosystem.org/pinode-xmr/) published by the good folks from the Monero ecosystem work-group.
 
 
 ### DOWNLOADING THE MONERO SOFTWARE
 Download your node software from the official [github repository](https://github.com/monero-project/monero/releases), or just click the link in our video description.  Assuming you followed all the steps from our last video, *Importing Public Keys and Verifying Hashes*, you will be ready to proceed with validated official Monero node software!
 
-If you haven't, please make sure you do that now. You will find the video listed in the*Getting to Grips with Monero* playlist 
+If you haven't, please make sure you do that now. You will find the video listed in the *Getting to Grips with Monero* playlist 
 
 The next sections will cover the different steps in the installation process for both Linux and Windows.  Use the time stamps below to jump to the parts you need.
 
@@ -82,7 +82,7 @@ You'll find the commands used in the description below, feel free to copy and pa
 
 `mkdir ~/monerod; tar -xjf monero-linux-x64-v*.tar.bz2 -C ~/monerod`
 
-Let's break down this command.  First, we're making a directory called "monerod", in the user's directory (`/home/"USERNAME"`), then we're using the `tar` function to unpack the compressed folder into the directory we just created.
+Let's break down this command.  First, we're making a directory called *monerod*, in the user's directory (`/home/"USERNAME"`), then we're using the `tar` function to unpack the compressed folder into the directory we just created.
 
 Now, let's run that by hitting *Enter*
 
@@ -93,17 +93,17 @@ Use the `cd` command and navigate to the newly created directory and look for th
 
 The first thing we're going to do is move download file to a custom folder. First select and cut using *Ctrl+X*
 
-Next we will go to the `C:` drive to create a folder called "monerod". Double click on the new folder and paste the zip file you just cut with *Ctrl+V*
+Next we will go to the `C:` drive to create a folder called *monerod*. Double click on the new folder and paste the zip file you just cut with *Ctrl+V*
 
-Double click the zip file to open, then drag and drop the folder into the address bar, onto the name of the parent folder.  Open the the monerod folder when finished.
+Double click the zip file to open, then drag and drop the folder into the address bar, onto the name of the parent folder.  Open the *monerod* folder when finished.
 
 As Windows users it's best to add a custom security rule to your virus and threat protection settings to avoid any complications when running your node:
 
-- Open the virus and threat protection settings by typing in the search bar or opening the start menu and typing in *virus*
+- Open the virus and threat protection settings by typing in the search bar or opening the start menu and typing in `virus`
 - Next, under *Virus and Threat Protection Settings*, click on *Manage Settings*
 - Scroll down until you see the *Exclusions* Section and choose *Add or remove exclusions*
 - Click *Add an exclusion*
-- Choose *folder*
+- Choose *Folder*
 - Go to the folder that you just created in the root directory
 
 
@@ -126,7 +126,7 @@ There are a lot of different settings you can apply to the daemon and the [Moner
 
 The first option we see here enables us to set the location of the blockchain. This requires a little thought because the database that contains the monero blockchain is rather large and ever-growing.
 
-One of the prerequisites for this video was at least 50GB of disk space, this is the minimum required space and would only allow you to download a pruned version of the blockchain, not the entire thing!
+One of the prerequisites for this video was at least 50 GB of disk space, this is the minimum required space and would only allow you to download a pruned version of the blockchain, not the entire thing!
 
 A pruned node is one with the entire transaction history but only about 1/8th of the details. For this reason, not all pruned nodes are created equal and only together can they preserve the transaction history of the entire blockchain
 
@@ -167,7 +167,7 @@ I'm going to leave all of this as default for now.
 
 The next thing we're going to want to do is change the location of the *monerod program*. You can do this through the file explorer or terminal, it's up to you. You need to be sure that either the monerod binary or monerod.exe is now located in the *monerod* folder alongside the config file. 
 
-CAUTION:  Each time you download an updated copy of the software, you will need to replace this file!
+***CAUTION**:  Each time you download an updated copy of the software, you will need to replace this file!*
 
 After all our work we can start our node for the very first time. Using the terminal, go to the *monerod folder*:
 
@@ -200,7 +200,7 @@ The following two sections will cover Linux and Windows independently, so please
 
 Forwarding the required port is relatively simple as a Linux user. To do so, we're going to use the [Uncomplicated Firewall (UFW)](https://wiki.ubuntu.com/UncomplicatedFirewall). This may be entirely new to you and if it is, you will first want to see if it's installed on your system.
 
-Open up a new terminal and type `UFW --version`. If you don't get a printout with a version number you'll need to install it, which you can do via the linux package manager.
+Open up a new terminal and type `ufw --version`. If you don't get a printout with a version number you'll need to install it, which you can do via the linux package manager.
 
 Now let's enter these three commands:
 1. Enable the UFW:
@@ -229,7 +229,7 @@ To begin, click on the Windows start menu and type `firewall`.  Click on the res
 
 Once open, head to advanced settings and choose inbound rules in the left hand column. Next select *New rule* under the *actions* subheading.
 
-Here we need to select *port* and then *next*. The protocol we're interested in is *tcp* and now we need to specify the port used by the Monero daemon which is **`18080`**
+Here we need to select *Port* and then *Next*. The protocol we're interested in is *tcp* and now we need to specify the port used by the Monero daemon which is **`18080`**
 
 In the next menu, we want to select *Allow the connection*. Now it's time to name the rule *Monerod P2P* before clicking the *Finish" button.
 
