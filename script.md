@@ -134,7 +134,7 @@ A pruned node is one with the entire transaction history but only about 1/8th of
 
 To set the location of the blockchain you need to edit everything after the `=` sign. Make sure you include the full directory path, including the drive letter if you're using Windows. I'm going to leave it as default for now.
 
-If you want to download a pruned copy of the blockchain we need to add a few more lines, first I'm going to add a subheading starting with '**#**` called Custom, this way i remember that I added the following lines myself. Underneath we're going to add `sync-pruned-blocks=1` and `prune-blockchain=1`. The value **1** indicates we want to enable this option. If you want to disable them, you can either add a **#** to the start of the line to comment it out or change **1** to **0**.
+If you want to download a pruned copy of the blockchain we need to add a few more lines, first I'm going to add a subheading starting with `**#**` called Custom, this way i remember that I added the following lines myself. Underneath we're going to add `sync-pruned-blocks=1` and `prune-blockchain=1`. The value **`1`** indicates we want to enable this option. If you want to disable them, you can either add a **#** to the start of the line to comment it out or change **1** to **0**.
 
 
 ### FINALISING OUR CONFIG FILE
