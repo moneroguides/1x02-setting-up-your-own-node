@@ -196,7 +196,7 @@ Now let's enter these three commands:
 3. Allow all outgoing connections:
    `sudo ufw default allow outgoing`
    
-This isn't ideal right now as you won't be able to use your browser or download system updates. For this reason you're going to want to allow ports 443 (tcp-https) and 80 (tcp-http). To do this you need to run the command:
+The current state of our firewall isn't ideal right now as we won't be able to use our browsers or download system updates. For this reason we're going to want to allow ports 443 (tcp-https) and 80 (tcp-http). To do this we're going to run the following commands:
 
 `sudo ufw allow 80/tcp` & `sudo ufw allow 443/tcp`
 
