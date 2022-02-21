@@ -86,7 +86,8 @@ The next sections will cover the process for Linux and Windows independently, pl
 
 If you are using a linux distro like I am currently, then you're going to need to open a command line terminal. I'm going to navigate to the right directory using the terminal and the change directory command: `cd`. You can then use `ls` to check you're in the right place. If you're using the file explorer, head to the proper folder and *Right click* and select *Open in Terminal*.
 
-You'll find the commands used in the description below, feel free to copy and paste them into your terminal window. To paste into the terminal window you'll need to use the *Shift* key in addition to *Ctrl* key to copy (*Ctrl + Shift + C*) and paste (*Ctrl + Shift + C*). 
+You'll find the commands used in the description below, feel free to copy and paste them into your terminal window. To paste into the terminal window you'll need to use the *Shift* key in addition to *
+* key to copy (*Ctrl + Shift + C*) and paste (*Ctrl + Shift + C*). 
 
 `mkdir ~/monerod; tar -xjf monero-linux-x64-v*.tar.bz2 -C ~/monerod`
 
@@ -100,9 +101,9 @@ Use the `cd` command and navigate to the newly created directory and look for th
 ### PREPARING YOUR FOLDERS - WINDOWS
 
 
-The first thing we're going to do is move download file to a custom folder. First select and cut using *Ctrl+X*
+The first thing we're going to do is move download file to a custom folder. First select and cut using *Ctrl + X*
 
-Next we'll go to the `C:` drive to create a folder called *monerod*. Double click on the new folder and paste the zip file you just cut with *Ctrl+V*
+Next we'll go to the `C:` drive to create a folder called *monerod*. Double click on the new folder and paste the zip file you just cut with *Ctrl + V*
 
 Double click the zip file to open, then drag and drop the folder into the address bar, onto the name of the parent folder.  Open the *monerod* folder when finished.
 
@@ -194,7 +195,7 @@ Now let's hit enter!
 
 As you can see from the messages, we're now syncing the blockchain to your computer. 
 
-This is a pretty lengthy process so be prepared. You can take a break from it whenever you like by using the command `ctrl+c` to cancel the operation. To start it again from where you left off, simply follow the same process.
+This is a pretty lengthy process so be prepared. You can take a break from it whenever you like by using the command *Ctrl + C* to cancel the operation. To start it again from where you left off, simply follow the same process.
 
 Currently we're only leaching the blockchain from the P2P network and sharing is caring after all, so we'll want to enable seeding as well.
 To do this, we're going to have to set special rules in the firewall to allow incoming connections for the p2p port (18080) on both our computers and routers.
