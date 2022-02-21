@@ -130,134 +130,140 @@ One of the prerequisites for this video was at least 50GB of disk space, this is
 
 A pruned node is one with the entire transaction history but only about 1/8th of the details. For this reason, not all pruned nodes are created equal and only together can they preserve the transaction history of the entire blockchain
 
-**Pruned nodes** are always recommended when connecting remotely, but if you have the space it's a big help to the network if you host a full node at 130 GB (and growing)
+Pruned nodes are always recommended when connecting remotely, but if you have the space it's a big help to the network if you host a full node at 130 GB (and growing)!
 
-To set the location of the blockchain you need to edit everything after the `=` sign. Make sure you include the full directory path, including the drive letter if you're using Windows. I'm going to leave it as default for now.
+To set the location of the blockchain you need to edit everything after the **`=`** sign. Make sure you include the full directory path, including the drive letter if you're using Windows. I'm going to leave it as default for now.
 
-If you want to download a pruned copy of the blockchain we need to add a few more lines, first I'm going to add a subheading starting with `**#**` called Custom, this way i remember that I added the following lines myself. Underneath we're going to add `sync-pruned-blocks=1` and `prune-blockchain=1`. The value **`1`** indicates we want to enable this option. If you want to disable them, you can either add a **#** to the start of the line to comment it out or change **1** to **0**.
+If you want to download a pruned copy of the blockchain we need to add a few more lines, first I'm going to add a subheading starting with `**#**` called *Custom*, this way I remember that I added the following lines myself. Underneath we're going to add `sync-pruned-blocks=1` and `prune-blockchain=1`. The value **`1`** indicates we want to enable this option. If you want to disable them, you can either add a **`#`** to the start of the line (to comment it out) or change **`1`** to **`0`**.
 
 
 ### FINALISING OUR CONFIG FILE
 
-Before we take a look at the rest of the file, we're going to add two more lines to our custom list; `enable-dns-blocklist=1` and `no-zmq=1`. Enabling the block list prevents connections to known bad actors and is centrally maintained by the Monero core team. The **no-zmq** option disables a particular interface we will no be using, limiting the potential attack the surface.
+Before we take a look at the rest of the file, we're going to add two more lines to our custom list; `enable-dns-blocklist=1` and `no-zmq=1`. Enabling the block list prevents connections to known bad actors and is centrally maintained by the Monero core team. The `no-zmq` option disables a particular interface we will not be using, limiting the potential attack surfaces.
 
-The first setting in the default config sets the location of the database file which will be created to store the blockchain data. I'm going to set it so that it saves it to a new folder called data in the *monerod* folder we created earlier. To do this we can simply replace this location with *data*.
+The first setting in the default config sets the location of the database file which will be created to store the blockchain data. I'm going to set it so that it saves it to a new folder called *data* within the *monerod* folder we created earlier. To do this we can simply replace this location with *data*.
 
-The next thing on the list is the location you want the Monero daemon to save logs. I'm going to change this to the same data folder by deleting everything that comes before section that reads *monerod.log*. That way, if anything goes wrong, we can quickly and easily investigate.
+The next thing on the list is the location you want the Monero daemon to save logs. I'm going to change this to the same data folder by deleting everything that comes before section titled *monerod.log*.  If anything goes wrong, we can quickly and easily investigate from here!
 
-Before moving onto the next part of the config it would be good if we address a few things first. Every time you start the Monero daemon it starts several processes which use different ports to run. The first of these is the P2P service. This is how your node communicates with the rest of the network and keeps itself up to date. Currently the IP address is bound to **0.0.0.0**, this is the best option if you haven't got any kind of custom networking. 
+Before continuing, let's consider whats actually going on here when the node is spinning up
 
-The port number is bound to the default and recommended one. You can of course change this to what ever you like, but be mindful that a wide variety of ports are used by other applications/services, so it's a good idea to stick to the recommended ones. 
+Every time you start the Monero daemon it starts several processes which use different ports to run. The first of these is the P2P service. This is how your node communicates with the rest of the network and keeps itself up-to-date. Currently the IP address is bound to **`0.0.0.0`**, this is the best option if you haven't got any kind of custom networking. 
 
-Being able to change this port number is great if you cannot forward a certain port on your router, or if your VPN service won't let your specify this one, however, we're going to leave this port as default for now, so take note of it. For our node to be a fully fledged member of the Monero network we need to forward this port on both our firewall and router so that our node can relay its blockchain data.
+The port number is bound to the default recommendation. You can of course change this to what ever you like, but be mindful that a wide variety of ports are used by other applications/services, so it's a good idea to stick to the recommended ones. 
 
-The other process on the list is the Monero RPC. RPC stands for remote procedure call and is the method used for communication between wallets and nodes. We're not going to go into too much detail in this video, but it is possible for you to allow external connections. Running an RPC service is certainly helpful for those who don't run their own node, but it exposes an entirely different part of the Monero codebase to the internet. As many of you will be setting this up on your own personal computer, we advise against this for now.
+Being able to change this port number is great if you cannot forward a certain port on your router or if your VPN service requires a certain value
 
-To save time in this video we're going to skip over the next two sections in the config file. If you're interested in what they do, please check out the monerodocs for more info.
+However for now, leave this port as default.  For our node to be a fully-fledged member of the Monero network we need to ***forward this port on both our firewall and router*** so that our node can shake hands with other nodes.
 
-Finally we move onto network traffic. How many peers you connect to and the bandwidth you allocate is totally customisable. The more outpeers and the the down rate will directly contribute to your initial sync. So I suggest you have these pretty high to begin with. You can always change things later on to suit your circumstances. 
+The other process on the list is the Monero RPC, or Remote Prcedure Call. RPC is the method used for communication between wallets and nodes. We're not going to go into too much detail in this video, but it is possible for you to allow external connections. Running an RPC service is certainly helpful for those who don't run their own node, but it exposes an entirely different part of the Monero codebase to the internet. As many of you will be setting this up on your own personal computer, we advise against this for now.
+
+To save time in this video we're going to skip over the next two sections in the config file. If you're interested in what they do, please check out MoneroDocs for more info.
+
+Finally we move onto network traffic. How many peers you connect to and the bandwidth you allocate is totally customisable. The more outpeers and the down rate will directly contribute to your initial sync. So I suggest you have these pretty high to begin with. You can always change things later on to suit your circumstances. 
 I'm going to leave all of this as default for now.
 
 
 ### SPINNING UP YOUR NODE
 
-The next thing we're going to want to do is change the location of the monerod program. You can do this through the file explorer or terminal, it's up to you. You need to be sure that either the monerod binary or monerod.exe is now located in the *monerod* folder alongside the config. Each time you download an updated copy of the software, you will need to replace this file.
+The next thing we're going to want to do is change the location of the *monerod program*. You can do this through the file explorer or terminal, it's up to you. You need to be sure that either the monerod binary or monerod.exe is now located in the *monerod* folder alongside the config file. 
 
-After all our work we can start our node for the very first time. Using the terminal, navigate to the folder that the monderod program is located in, then:
+CAUTION:  Each time you download an updated copy of the software, you will need to replace this file!
 
-**for Windows:**
+After all our work we can start our node for the very first time. Using the terminal, go to the *monerod folder*:
+
+Windows:
 - *Shift + Right Click*
-- open up a powershell
-- type  `./monerod.exe --config-file=./bitmonero.conf`
+- Open up a powershell
+- Type  `./monerod.exe --config-file=./bitmonero.conf`
 
-**for Linux:**
-- *right-click*
-- open a terminal
-- type `./monerod --config-file=./bitmonero.conf`
+Linux:
+- *Right Click*
+- Open a terminal
+- Type `./monerod --config-file=./bitmonero.conf`
 
-Now let's hit enter!
+Now let's hit *Enter*!
 
-As you can see from the messages, we are now syncing the blockchain to your computer. 
+As you can see from the messages, we are now syncing the blockchain to your computer! 
 
-This is a pretty lengthy process so be prepared. You can take a break from it whenever you like by using the command *ctrl+c* to cancel the operation. To start it again from where you left off, simply follow the same process.
+This is a pretty lengthy process so be prepared. You can take a break from it whenever you like by using the command *Ctrl + C* to cancel the operation. To start it again from where you left off, simply follow the same process.
 
-Currently we are only leaching the blockchain from the P2P network and sharing is caring after all, so we'll want to enable seeding as well.
-To do this, we're going to have to set special rules in the firewall to allow incoming connections for the p2p port (18080) on both our computers and routers.
+Currently we are only leaching the blockchain from the P2P network and sharing is caring after all, so we'll want to enable seeding as well, right?
 
-This may or may not be technically possible for you. This will all depend on your ISP and aministrative access to your router.
+To do this, we're going to have to set special rules in the firewall to allow incoming connections for the p2p port, **`18080`** on computer and router
 
-The following two sections will cover linux and Windows independently, so please head to the appropriate section. As for routers, please take a look at your manufacturers recommendations. If you're currently using a VPN, please take a look at our video **Using Monero With Enhanced Privacy** as things will be a little bit different for you.
+This may or may not be technically possible for you. This will all depend on your ISP and your administrative access to the router.
+
+The following two sections will cover Linux and Windows independently, so please head to the appropriate section. As for routers, please take a look at your manufacturers recommendations. If you're currently using a VPN, please take a look at our video *Using Monero With Enhanced Privacy* as things will be a little bit different for you.
 
 
 ### FORWARDING THE P2P PORT - LINUX
 
-Forwarding the required port is relatively simple as a linux user. To do so, we're going to use the [Uncomplicated Firewall](https://wiki.ubuntu.com/UncomplicatedFirewall), ufw for short. This may be entirely new to you and if it is, you will first want to see if it's installed.
+Forwarding the required port is relatively simple as a Linux user. To do so, we're going to use the [Uncomplicated Firewall (UFW)](https://wiki.ubuntu.com/UncomplicatedFirewall). This may be entirely new to you and if it is, you will first want to see if it's installed on your system.
 
-Open up a new terminal and enter `ufw --version`. If you don't get a printout with a version number you'll need to install it, which you can do via your package manager.
+Open up a new terminal and type `UFW --version`. If you don't get a printout with a version number you'll need to install it, which you can do via the linux package manager.
 
 Now let's enter these three commands:
-
-1. Enable the ufw:
+1. Enable the UFW:
    `sudo ufw enable`
 2. Block incoming connections:
    `sudo ufw default deny incoming`
 3. Allow all outgoing connections:
    `sudo ufw default allow outgoing`
    
-This isn't ideal right now as you won't be able to use your browser or download system updates. For this reason you're going to want to allow ports 443 (tcp-https) and 80 (tcp-http). To do this you need to run the command:
+This isn't ideal right now as you won't be able to use your browser or download system updates. For this reason you're going to want to **allow ports `443` (tcp-https) and `80` (tcp-http)**. To do this you need to run the command:
 
 `sudo ufw allow 80/tcp` & `sudo ufw allow 443/tcp`
 
-Now that the ufw has been enabled and your firewall has been hardened, your computer is a little more secure and we're ready to make an exception for the Monero daemon:
+Now that the UFW has been enabled and your firewall has been hardened, your computer is a little more secure and we're ready to make an exception for the Monero daemon:
 
 `sudo ufw allow 18080/tcp`
 
-This command will allow traffic to access your monero daemon, you may remember this port number from the config file we created earlier. After you press enter you should see *rule added.* To double check that it worked, you can run `sudo ufw status`. We can see it listed in the print out, so everything went fine.
+This command will allow traffic to access your monero daemon, you may remember this port number from the config file we created earlier. After you press enter you should see system message saying *rule added*. To double check that it worked, run `sudo ufw status`. We can see it listed in the printout, so everything went fine.
 
 Well, that's all there is to it for your PC. The only thing left to do is forward the port on your router. Every router is different, so please have a look at your manufacturer's instructions for this step.
 
 
 ### FORWARDING THE P2P PORT - WINDOWS
 
-To begin, click on the Windows start menu and type firewall, click on the result from Windows defender.
+To begin, click on the Windows start menu and type `firewall`.  Click on the result from Windows defender.
 
-Once open, head to advanced settings and choose inbound rules in the left hand column. Next select *new rule* under the actions sub heading.
+Once open, head to advanced settings and choose inbound rules in the left hand column. Next select *New rule* under the *actions* subheading.
 
-Here we need to select *port* and then *next*. The protocol we're interested in is *tcp* and now we need to specify the port used by the Monero daemon which is `18080`
+Here we need to select *port* and then *next*. The protocol we're interested in is *tcp* and now we need to specify the port used by the Monero daemon which is **`18080`**
 
-In the next menu, we want to select *Allow the connection*. Now it's time to Name our Rule, I suggest *Monerod P2P*, finally, hit the *Finish" button.
+In the next menu, we want to select *Allow the connection*. Now it's time to name the rule *Monerod P2P* before clicking the *Finish" button.
 
-That's it, we've opened up our port in wodows for the Monero daemon to communicate with the rest of the network.
+That's it, we've opened up our port in Windows for the Monero daemon to communicate with the rest of the network.
 
 The only thing left to do is forward the port on your router. Every router is different, so please have a look at your manufacturers instructions for this step.
 
 
 ### CHECKING OUR PROGRESS
 
-On a 100Mbit connection and writing to an ssd, it's taken me a little over a day to sync the entire blockchain. Once it's synced you should see the message **SYNCHRONISED OK**.
+On a 100 Mbit connection writing to an SSD, it's taken me a little over a day to sync the entire blockchain. Once it's synced you should see the message **`SYNCHRONISED OK`**.
 
-We can confirm the status of our nodes by using the command `status`. This shows the height of the blockchain and a few other bits, including the number of incoming and outgoing connections.
+We can confirm the status of our nodes by using the `status` command. This shows the height of the blockchain and a few other bits, including the number of incoming and outgoing connections.
 
 Another neat command is `print_net_stats` which lets us see how much data has been received and contributed to the network and at what rate.
 
-Of course no internet connection is the same and you may want to limit your traffic. You can do so on the fly or by editing the config file we set up earlier. 
-It may take some time for you to find the settings that really suit you. 
+Of course no Internet connection is the same and you may want to limit your traffic. You can do so on the fly or by editing the config file we set up earlier. Take the time to find the settings that really suit your needs!
 
-If you're interested in seeing what else you can do whilst the daemon is running type `help`.
+If you're interested in seeing what else you can do whilst the daemon is running type `help`
 
-As the initial sync is complete, I'm going to limit my traffic. I'm going to offer 1 MB/s to my incoming connections and 1.5MB/s to outgoing as I use my PC for many other things. I'm going to do so using the commands `limit_up` and `limit_down`.
+As the initial sync is complete, I'm going to limit my traffic. I'm going to offer 1 MB/s to my incoming connections and 1.5 MB/s to outgoing as I use my PC for many other things. I'm going to do so using the `limit_up` and `limit_down` commands.
 
-Once again, please take a look at [MoneroDocs](https://monerodocs.org/interacting/monerod-reference/#commands) for more documentation. It has lots of useful information and will help you to tune your node!
+Once again, please take a look at [MoneroDocs](https://monerodocs.org/interacting/monerod-reference/#commands) for more documentation. It has lots of useful information for helping tune your node!
 
 
-### OUTRO
+### CONCLUSION
 
 Well, there we have it, our very own node!
 
-Now we can rest easy knowing that we're supporting the network and have the basis for all our future monero needs!
+Now we can rest easy knowing that we're supporting the network and have the basis for all our future Monero needs!
 
 If you have any comments or questions, feel free to leave them below, but please search for similar questions before doing so.
 
 That's it for this video, if you're interested in seeing how you can put your node to use, you can check out the other videos in this series.
 
 Thanks for watching and bye for now.
+
