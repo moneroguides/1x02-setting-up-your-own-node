@@ -27,7 +27,7 @@ Nodes are programmed to follow a certain set of rules which facilitate the runni
 
 The greater the number of nodes in the network, the more resilient it is against both denial of service attacks and network partitioning. 
 
-Nodes are typically separated into two categories: local and remote. 
+Nodes are typically separated into two categories, local and remote. 
 
 - Local nodes are those **within** your local network 
 - Remote nodes are those **outside** your local network
