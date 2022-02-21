@@ -1,4 +1,4 @@
-# Getting to Grips with Monero, Video 2 
+# Getting to Grips with Monero - Setting up your own Node 
 
 ## PREREQUISITES
 
@@ -12,7 +12,7 @@
 
 Hello and welcome to the second video in the "Getting to grips with Monero" series
 
-In this video, we will be developing our understanding of nodes, the most important piece of infrastructure in the Monero ecosystem
+In this video, we'll be developing our understanding of nodes, the most important piece of infrastructure in the Monero ecosystem
 
 We'll be discussing what they are, why they're important and demonstrating step-by-step how to set up your own.  So let's get going!
 
@@ -25,18 +25,18 @@ Running your own node and connecting to the P2P network is kind of like download
 
 Nodes are programmed to follow a certain set of rules which facilitate the running of the network. An important abstraction from these rules is the consensus mechanism. 
 
-It is through this mechanism that the legitimate history of the Monero blockhain is maintained.  The greater the number of nodes in the network, the more resilient it is against both denial of service attacks and network partitioning. 
+It's through this mechanism that the legitimate history of the Monero blockhain is maintained.  The greater the number of nodes in the network, the more resilient it is against both denial of service attacks and network partitioning. 
 
 Nodes are typically separated into two categories: 
-1.  *Local nodes* are **within** your local network
-2.  *Remote nodes* are **outside** your local network
+1.  *Local nodes* are those **within** your local network
+2.  *Remote nodes* are those **outside** your local network
 
 
 ### REMOTE VS LOCAL
 
 There are a few benefits to running a local node, the most notable of which is maintaining your privacy! 
 
-When you connect to remote nodes, it is possible for the host to obtain the following details about you: 
+When you connect to remote nodes, it's possible for the host to obtain the following details about you: 
 - IP address
 - Block height from which your wallet started synchronisation
 - Transaction IDs you broadcast and a list of decoys
@@ -51,60 +51,62 @@ Hosting your own node for use with your own wallet simply reduces the amount of 
 
 Before we continue, you need to be learn about whatever local risks, if any, are associated with hosting your own node.  This is important for your personal security and obviously depends on where in the world you live and work. 
 
-Currently, the best ways to shield your Internet activities from malicious actors is to use a trustworthy Virtual Proxy Network (VPN), Tor routing (The Onion Routing Project) or Invisible Internet Project (I2P). Best practices are not timeless and there will always be developments in the web and the Monero ecosystem, but the Monero developer community is one of the largest and most privacy-focused organizations in this space.
+Currently, the best ways to shield your Internet activities from malicious actors is through a trustworthy Virtual Proxy Network (VPN), Tor routing (The Onion Routing Project) or Invisible Internet Project (I2P). Best practices are not timeless and there will always be developments in the web and the Monero ecosystem, but the Monero developer community is one of the largest and most privacy-focused organizations in this space.
 
-Please skip to the next video if you have any security concerns.  If you still want to host your own node and support the network, we will of course be showing you how to do so with VPN in Video 4: **Using Monero with Enhanced Privacy**.
+Please skip to the next video if you have any security concerns. If you still want to host your own node and support the network, we will of course be showing you how to do so with VPN in Video 4 of this series: **Using Monero with Enhanced Privacy**.
 
 
 ### HARDWARE RECOMMENDATIONS
 
 Most users run their nodes 24/7, so plan on operating low-powered and efficient hardware using "System On Chip" (SOC) architechture from AMD or Intel
 
-Generally speaking, the Rasberry Pi and other ARM-based (Advanced RISC Machine) systems would be ideal for something like this. However, it is not the best platform for running the Monero daemon because the hardware lacks support for the "Advanced Encryption Standard" (AES) instruction set. This major disadvantage leads to drastically longer sync times. Typically, only systems with x86 architecture benefit from this instruction set.
+Generally speaking, the Rasberry Pi and other ARM-based (Advanced RISC Machine) systems would be ideal for something like this. However, it's not the best platform for running the Monero daemon as the hardware lacks support for the "Advanced Encryption Standard" (AES) instruction set. This major disadvantage leads to drastically longer sync times. Typically, only systems with x86 architecture benefit from this instruction set.
 
-The Monero daemon requires 1 to 2 GB of memory to run, so pick a system with over 4 GB
+The Monero daemon requires 1 to 2 GB of memory to run, so aim to use a system with at least 4 GB or memory
 
-If you are planning on using a single board computer like the Raspberry Pi and are feeling adventurous, we would recommend following this [guide](https://moneroecosystem.org/pinode-xmr/) published by the good folks from the Monero ecosystem work-group.
+If you're planning on using a single board computer like the Raspberry Pi and are feeling adventurous, we would recommend following this [guide](https://moneroecosystem.org/pinode-xmr/) published by the good folks from the Monero ecosystem work-group.
 
 
 ### DOWNLOADING THE MONERO SOFTWARE
+
 Download your node software from the official [github repository](https://github.com/monero-project/monero/releases), or just click the link in our video description.  Assuming you followed all the steps from our last video, *Importing Public Keys and Verifying Hashes*, you will be ready to proceed with validated official Monero node software!
 
-If you haven't, please make sure you do that now. You will find the video listed in the *Getting to Grips with Monero* playlist 
+If you haven't, please make sure you do that now. You'll find the video listed in the *Getting to Grips with Monero* playlist 
 
 The next sections will cover the different steps in the installation process for both Linux and Windows.  Use the time stamps below to jump to the parts you need.
 
 
-### LINUX
+### PREPARING YOUR FOLDERS - LINUX
+
 If you are using a linux distro like I am currently, then you're going to need to open a command line terminal. I'm going to navigate to the right directory using the terminal and the change directory command: `cd`. You can then use `ls` to check you're in the right place. If you're using the file explorer, head to the proper folder and *Right click* and select *Open in Terminal*.
 
-You'll find the commands used in the description below, feel free to copy and paste them into your terminal window. To paste into the terminal window you will probably need to use the *Shift* key in addition to *Ctrl* key to copy (*Ctrl + Shift + C*) and paste (*Ctrl + Shift + C*). 
+You'll find the commands used in the description below, feel free to copy and paste them into your terminal window. To paste into the terminal window you'll probably need to use the *Shift* key in addition to *Ctrl* key to copy (*Ctrl + Shift + C*) and paste (*Ctrl + Shift + C*). 
 
 `mkdir ~/monerod; tar -xjf monero-linux-x64-v*.tar.bz2 -C ~/monerod`
 
-Let's break down this command.  First, we're making a directory called *monerod*, in the user's directory (`/home/"USERNAME"`), then we're using the `tar` function to unpack the compressed folder into the directory we just created.
+Let's break down this command. First, we're making a directory called *monerod*, in the user's directory (`/home/"USERNAME"`), then we're using the `tar` function to unpack the compressed folder into the directory we just created.
 
 Now, let's run that by hitting *Enter*
 
 Use the `cd` command and navigate to the newly created directory and look for the extracted folder using the `ls` command
 
 
-### WINDOWS
+### PREPARING YOUR FOLDERS - WINDOWS
 
 The first thing we're going to do is move download file to a custom folder. First select and cut using *Ctrl+X*
 
-Next we will go to the `C:` drive to create a folder called *monerod*. Double click on the new folder and paste the zip file you just cut with *Ctrl+V*
+Next we'll go to the `C:` drive to create a folder called *monerod*. Double click on the new folder and paste the zip file you just cut with *Ctrl+V*
 
 Double click the zip file to open, then drag and drop the folder into the address bar, onto the name of the parent folder.  Open the *monerod* folder when finished.
 
 As Windows users it's best to add a custom security rule to your virus and threat protection settings to avoid any complications when running your node:
 
-- Open the virus and threat protection settings by typing in the search bar or opening the start menu and typing in `virus`
+- First, open the virus and threat protection settings by typing in the search bar or opening the start menu and typing in `virus`
 - Next, under *Virus and Threat Protection Settings*, click on *Manage Settings*
 - Scroll down until you see the *Exclusions* Section and choose *Add or remove exclusions*
 - Click *Add an exclusion*
 - Choose *Folder*
-- Go to the folder that you just created in the root directory
+- The select the folder that you just created in the root directory
 
 
 ### CREATING A CONFIG FILE
@@ -139,7 +141,7 @@ If you want to download a pruned copy of the blockchain we need to add a few mor
 
 ### FINALISING OUR CONFIG FILE
 
-Before we take a look at the rest of the file, we're going to add two more lines to our custom list; `enable-dns-blocklist=1` and `no-zmq=1`. Enabling the block list prevents connections to known bad actors and is centrally maintained by the Monero core team. The `no-zmq` option disables a particular interface we will not be using, limiting the potential attack surfaces.
+Before we take a look at the rest of the file, we're going to add two more lines to our custom list; `enable-dns-blocklist=1` and `no-zmq=1`. Enabling the block list prevents connections to known bad actors and is centrally maintained by the Monero core team. The `no-zmq` option disables a particular interface we will not be using, limiting the potential attack surface.
 
 The first setting in the default config sets the location of the database file which will be created to store the blockchain data. I'm going to set it so that it saves it to a new folder called *data* within the *monerod* folder we created earlier. To do this we can simply replace this location with *data*.
 
@@ -185,13 +187,13 @@ Now let's hit *Enter*!
 
 As you can see from the messages, we are now syncing the blockchain to your computer! 
 
-This is a pretty lengthy process so be prepared. You can take a break from it whenever you like by using the command *Ctrl + C* to cancel the operation. To start it again from where you left off, simply follow the same process.
+This is a pretty lengthy process so be prepared. You can take a break from it whenever you like by using the command *Ctrl + C*. This command will cancel the operation. To start it again from where you left off, simply follow the same process.
 
 Currently we are only leaching the blockchain from the P2P network and sharing is caring after all, so we'll want to enable seeding as well, right?
 
-To do this, we're going to have to set special rules in the firewall to allow incoming connections for the p2p port, **`18080`** on computer and router
+To do this, we're going to have to set special rules in the firewall to allow incoming connections for the p2p port, **`18080`** on our computers and router
 
-This may or may not be technically possible for you. This will all depend on your ISP and your administrative access to the router.
+This may or may not be technically possible for you, as it depends on your ISP and your administrative access to the router.
 
 The following two sections will cover Linux and Windows independently, so please head to the appropriate section. As for routers, please take a look at your manufacturers recommendations. If you're currently using a VPN, please take a look at our video *Using Monero With Enhanced Privacy* as things will be a little bit different for you.
 
@@ -200,7 +202,7 @@ The following two sections will cover Linux and Windows independently, so please
 
 Forwarding the required port is relatively simple as a Linux user. To do so, we're going to use the [Uncomplicated Firewall (UFW)](https://wiki.ubuntu.com/UncomplicatedFirewall). This may be entirely new to you and if it is, you will first want to see if it's installed on your system.
 
-Open up a new terminal and type `ufw --version`. If you don't get a printout with a version number you'll need to install it, which you can do via the linux package manager.
+Open up a new terminal and type `ufw --version`. If you don't get a printout with a version number you'll need to install it, which you can do via your package manager.
 
 Now let's enter these three commands:
 1. Enable the UFW:
