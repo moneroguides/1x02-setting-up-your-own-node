@@ -39,7 +39,7 @@ There are a few benefits to running a local node, the most notable of which is p
 
 When you connect to remote nodes, it's possible for the host to obtain the following details about you:
 
--Your IP address
+- Your IP address
 - The block height from which your wallet started synchronisation
 - The transaction IDs you broadcast and a list of decoys. 
 
