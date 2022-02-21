@@ -95,50 +95,55 @@ The first thing we're going to do is move download file to a custom folder. Firs
 
 Next we will go to the `C:` drive to create a folder called "monerod". Double click on the new folder and paste the zip file you just cut with *Ctrl+V*
 
-Double click the zip file to open, then drag and drop the folder into the address bar, on to the name of the parent folder
+Double click the zip file to open, then drag and drop the folder into the address bar, onto the name of the parent folder.  Open the the monerod folder when finished.
 
-Go back to the monerod folder when you're done
+As Windows users it's best to add a custom security rule to your virus and threat protection settings to avoid any complications when running your node:
 
-As windows users it's best to add a custom security rule to your virus and threat protection settings to avoid any complications when running your node.
-To do this we'll need to go to the virus and threat protection settings. You can find this by typing it in the search bar or opening the start menu and typing in `virus`. Next, under Virus and Threat Protection Settings, click on Manage Settings. Scroll down until you see the "Exclusions" Section and choose "Add or remove exclusions". Click "Add an exclusion", choose "folder" and then navigate to the folder that you just created in the root directory.
+- Open the virus and threat protection settings by typing in the search bar or opening the start menu and typing in *virus*
+- Next, under *Virus and Threat Protection Settings*, click on *Manage Settings*
+- Scroll down until you see the *Exclusions* Section and choose *Add or remove exclusions*
+- Click *Add an exclusion*
+- Choose *folder*
+- Go to the folder that you just created in the root directory
 
 
 ### CREATING A CONFIG FILE
 
-Creating a config file is a pretty simple way to tailor the Monero daemon to suit your own needs and circumstances. There is no default config file, so we'll be doing this from scratch using the documents hosted on [monerodocs.org](www.monerodocs.org) as a reference.
+Creating a config file is a pretty simple way to tailor the Monero daemon to suit your own situation. There is no default config file, so we'll be creating this from scratch by referring to the documents hosted on [monerodocs.org](www.monerodocs.org).
 
-In the monerod folder create a file called "bitmonero.conf", this can be opened and edited with any text editor so we won't be covering OS specific details here.
+In the monerod folder create a file called *bitmonero.conf*, this can be opened and edited with any text editor 
 
-We're going to use [the example file](https://monerodocs.org/interacting/monero-config-file/) from MoneroDocs as a template to work from.
-Please click on the subheading "Examples" and copy the example to your clipboard using the provided button. Now paste it into your text editor.
+We're going to use [the example file](https://monerodocs.org/interacting/monero-config-file/) from MoneroDocs as the template
 
-You'll notice quite a few "#" symbols in this text. These are comments. Every time the Monero daemon comes across one, it ignores it and skips to the next line. It's a really easy way for us to leave information and comments in the file without them interfering with its operation.
+Please click on the subheading *Examples* and copy the example to your clipboard using the provided button. Now paste it into your text editor.
 
-There are a lot of different settings you can apply to the daemon and the [MoneroDocs](https://monerodocs.org/interacting/monerod-reference) web page is a great resource for finding the things you want.
+You'll notice quite a few *#* symbols in this text. These are comments. Every time the Monero daemon comes across one, it ignores it and skips to the next line. It's a really easy way for us to leave information and comments in the file without them interfering with its operation.
+
+There are a lot of different settings you can apply to the daemon and the [MoneroDocs Reference Page](https://monerodocs.org/interacting/monerod-reference) is a great resource for learning more
 
 
 ### TO PRUNE OR NOT TO PRUNE
 
-The first option we see here enables us to set the location of the blockchain. This requires a little thought because the database that contains the monero blockchain is rather large, and ever-growing.
+The first option we see here enables us to set the location of the blockchain. This requires a little thought because the database that contains the monero blockchain is rather large and ever-growing.
 
-One of the prerequisites for this video was at least 50GB of disk space, this is the minimum required space and would only allow you to download a pruned version of the blockchain, not the entire thing.
+One of the prerequisites for this video was at least 50GB of disk space, this is the minimum required space and would only allow you to download a pruned version of the blockchain, not the entire thing!
 
-Simply put; a pruned node is one with the entire transaction history, but only a small share of the details. Not all pruned nodes are created equal, only together can they preserve the whole blockchain as each holds about 1/8^(th) of the required detail.
+A pruned node is one with the entire transaction history but only about 1/8th of the details. For this reason, not all pruned nodes are created equal and only together can they preserve the transaction history of the entire blockchain
 
-Pruned nodes are always recommended over using remote ones, however if you have the space it's a big help for the network if you host a full node. A full node would require around 130GB currently, but this size is always increasing.
+**Pruned nodes** are always recommended when connecting remotely, but if you have the space it's a big help to the network if you host a full node at 130 GB (and growing)
 
-To set the location of the blockchain you need to edit everything after the **=** sign. Make sure you include the full directory path, including the drive letter if you're using windows. I'm going to leave it as default for now.
+To set the location of the blockchain you need to edit everything after the `=` sign. Make sure you include the full directory path, including the drive letter if you're using Windows. I'm going to leave it as default for now.
 
-If you want to download a pruned copy of the blockchain we need to add a few more lines, first I'm going to add a subheading starting with **#** called Custom, this way i remember that I added the following lines myself. Underneath we're going to add `sync-pruned-blocks=1` and `prune-blockchain=1`. The value **1** indicates we want to enable this option. If you want to disable them, you can either add a **#** to the start of the line to comment it out or change **1** to **0**.
+If you want to download a pruned copy of the blockchain we need to add a few more lines, first I'm going to add a subheading starting with '**#**` called Custom, this way i remember that I added the following lines myself. Underneath we're going to add `sync-pruned-blocks=1` and `prune-blockchain=1`. The value **1** indicates we want to enable this option. If you want to disable them, you can either add a **#** to the start of the line to comment it out or change **1** to **0**.
 
 
 ### FINALISING OUR CONFIG FILE
 
 Before we take a look at the rest of the file, we're going to add two more lines to our custom list; `enable-dns-blocklist=1` and `no-zmq=1`. Enabling the block list prevents connections to known bad actors and is centrally maintained by the Monero core team. The **no-zmq** option disables a particular interface we will no be using, limiting the potential attack the surface.
 
-The first setting in the default config sets the location of the database file which will be created to store the blockchain data. I'm going to set it so that it saves it to a new folder called data in the "monerod" folder we created earlier. To do this we can simply replace this location with "data".
+The first setting in the default config sets the location of the database file which will be created to store the blockchain data. I'm going to set it so that it saves it to a new folder called data in the *monerod* folder we created earlier. To do this we can simply replace this location with *data*.
 
-The next thing on the list is the location you want the Monero daemon to save logs. I'm going to change this to the same data folder by deleting everything that comes before section that reads "monerod.log". That way, if anything goes wrong, we can quickly and easily investigate.
+The next thing on the list is the location you want the Monero daemon to save logs. I'm going to change this to the same data folder by deleting everything that comes before section that reads *monerod.log*. That way, if anything goes wrong, we can quickly and easily investigate.
 
 Before moving onto the next part of the config it would be good if we address a few things first. Every time you start the Monero daemon it starts several processes which use different ports to run. The first of these is the P2P service. This is how your node communicates with the rest of the network and keeps itself up to date. Currently the IP address is bound to **0.0.0.0**, this is the best option if you haven't got any kind of custom networking. 
 
@@ -156,17 +161,17 @@ I'm going to leave all of this as default for now.
 
 ### SPINNING UP YOUR NODE
 
-The next thing we're going to want to do is change the location of the monerod program. You can do this through the file explorer or terminal, it's up to you. You need to be sure that either the monerod binary or monerod.exe is now located in the "monerod" folder alongside the config. Each time you download an updated copy of the software, you will need to replace this file.
+The next thing we're going to want to do is change the location of the monerod program. You can do this through the file explorer or terminal, it's up to you. You need to be sure that either the monerod binary or monerod.exe is now located in the *monerod* folder alongside the config. Each time you download an updated copy of the software, you will need to replace this file.
 
 After all our work we can start our node for the very first time. Using the terminal, navigate to the folder that the monderod program is located in, then:
 
 **for Windows:**
-- `shift+right click`
+- *Shift + Right Click*
 - open up a powershell
 - type  `./monerod.exe --config-file=./bitmonero.conf`
 
 **for Linux:**
-- `right-click`
+- *right-click*
 - open a terminal
 - type `./monerod --config-file=./bitmonero.conf`
 
@@ -174,14 +179,14 @@ Now let's hit enter!
 
 As you can see from the messages, we are now syncing the blockchain to your computer. 
 
-This is a pretty lengthy process so be prepared. You can take a break from it whenever you like by using the command `ctrl+c` to cancel the operation. To start it again from where you left off, simply follow the same process.
+This is a pretty lengthy process so be prepared. You can take a break from it whenever you like by using the command *ctrl+c* to cancel the operation. To start it again from where you left off, simply follow the same process.
 
 Currently we are only leaching the blockchain from the P2P network and sharing is caring after all, so we'll want to enable seeding as well.
 To do this, we're going to have to set special rules in the firewall to allow incoming connections for the p2p port (18080) on both our computers and routers.
 
 This may or may not be technically possible for you. This will all depend on your ISP and aministrative access to your router.
 
-The following two sections will cover linux and windows independently, so please head to the appropriate section. As for routers, please take a look at your manufacturers recommendations. If you're currently using a VPN, please take a look at our video **Using Monero With Enhanced Privacy** as things will be a little bit different for you.
+The following two sections will cover linux and Windows independently, so please head to the appropriate section. As for routers, please take a look at your manufacturers recommendations. If you're currently using a VPN, please take a look at our video **Using Monero With Enhanced Privacy** as things will be a little bit different for you.
 
 
 ### FORWARDING THE P2P PORT - LINUX
@@ -207,20 +212,20 @@ Now that the ufw has been enabled and your firewall has been hardened, your comp
 
 `sudo ufw allow 18080/tcp`
 
-This command will allow traffic to access your monero daemon, you may remember this port number from the config file we created earlier. After you press enter you should see "rule added." To double check that it worked, you can run `sudo ufw status`. We can see it listed in the print out, so everything went fine.
+This command will allow traffic to access your monero daemon, you may remember this port number from the config file we created earlier. After you press enter you should see *rule added.* To double check that it worked, you can run `sudo ufw status`. We can see it listed in the print out, so everything went fine.
 
 Well, that's all there is to it for your PC. The only thing left to do is forward the port on your router. Every router is different, so please have a look at your manufacturer's instructions for this step.
 
 
 ### FORWARDING THE P2P PORT - WINDOWS
 
-To begin, click on the windows start menu and type firewall, click on the result from windows defender.
+To begin, click on the Windows start menu and type firewall, click on the result from Windows defender.
 
-Once open, head to advanced settings and choose inbound rules in the left hand column. Next select "new rule" under the actions sub heading.
+Once open, head to advanced settings and choose inbound rules in the left hand column. Next select *new rule* under the actions sub heading.
 
-Here we need to select "port" and then "next". The protocol we're interested in is "tcp" and now we need to specify the port used by the Monero daemon which is `18080`
+Here we need to select *port* and then *next*. The protocol we're interested in is *tcp* and now we need to specify the port used by the Monero daemon which is `18080`
 
-In the next menu, we want to select "Allow the connection". Now it's time to Name our Rule, I suggest Monerod P2P, finally, hit the finish button.
+In the next menu, we want to select *Allow the connection*. Now it's time to Name our Rule, I suggest *Monerod P2P*, finally, hit the *Finish" button.
 
 That's it, we've opened up our port in wodows for the Monero daemon to communicate with the rest of the network.
 
