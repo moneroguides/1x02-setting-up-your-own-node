@@ -251,7 +251,7 @@ The only thing left to do is forward the port on your router. Every router is di
 
 On a 100Mbit connection and writing to an ssd, it's taken me a little over a day to sync the entire blockchain. Once it's synced you should see the message **SYNCHRONISED OK**.
 
-We can confirm the status of our nodes by using the command `status`. This shows the height of the blockchain and a few other bits, including the number of incoming and outgoing connections.
+We can confirm the status of our nodes by using the command `status`. This shows the height of the blockchain and a few other bits, including the number of incoming and outgoing connections. You will notice that I curently have no *in* connections, this is because I'm yet forwarded this port on my router.
 
 Another neat command is `print_net_stats` which lets us see how much data has been received and contributed to the network and at what rate.
 
