@@ -260,7 +260,7 @@ It may take some time for you to find the settings that really suit you.
 
 If you're interested in seeing what else you can do whilst the daemon is running type `help`.
 
-As the initial sync is complete, I'm going to limit my traffic. I'm going to offer 1 Mb/s to my incoming connections and 1.5Mb/s to outgoing as I use my PC for many other things. I'm going to do so using the commands `limit_up` and `limit_down`.
+As the initial sync is complete, I'm going to limit my traffic. I'm going to offer 1 MB/s to my incoming connections and 1.5MB/s to outgoing as I use my PC for many other things. I'm going to do so using the commands `limit_up` and `limit_down`.
 
 Once again, please take a look at [MoneroDocs](https://monerodocs.org/interacting/monerod-reference/#commands) for more documentation. It has lots of useful information and will help you to tune your node!
 
