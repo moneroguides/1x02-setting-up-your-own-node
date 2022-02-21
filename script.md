@@ -66,7 +66,7 @@ It's for this reason we'd recommend the use of low powered, efficient architecht
 
 Generally speaking the Rasberry Pi and other ARM-based (Advanced RISC Machine) systems would be ideal for something like this. However, it's in fact not the best platform for running the Monero daemon. This is because the hardware lacks support for the "Advanced Encryption Standard" (AES) instruction set. The major dissadvantage is drastically longer sync times. Typically, only systems with x86 architecture will benefit from this instruction set.
 
-The Monero daemon requires 1 to 2 GB of memory to run, so aim to use a system with at least 4 GB or memory.
+The Monero daemon requires 1 to 2 GB of memory to run, so aim to use a system with at least 4 GB of memory.
 
 If you're planning on using a single board computer like the Raspberry Pi and are feeling adventurous, we would recommend [this guide](https://moneroecosystem.org/pinode-xmr/) published by the good folk from the monero-ecosystem work-group. Be aware that there may be a more up to date version when you watch this video.
 
