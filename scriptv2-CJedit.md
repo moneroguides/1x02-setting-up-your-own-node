@@ -106,7 +106,7 @@ As Windows users it's best to add a custom security rule to your virus and threa
 - Scroll down until you see the *Exclusions* Section and choose *Add or remove exclusions*
 - Click *Add an exclusion*
 - Choose *Folder*
-- The select the folder that you just created in the root directory
+- Then select the folder that you just created in the root directory
 
 
 ### CREATING A CONFIG FILE
