@@ -41,7 +41,7 @@ When you connect to remote nodes, it's possible for the host to obtain the follo
 
 - Your IP address
 - The block height from which your wallet started synchronisation
-- The transaction IDs you broadcast and a list of decoys. 
+- The transaction IDs you broadcast and a list of decoys
 
 Depending on your privacy concerns, this might not be ideal. So make sure you connect to a remote node hosted by someone you can trust. This is very important!
 
