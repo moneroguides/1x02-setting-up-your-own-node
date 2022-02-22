@@ -51,11 +51,11 @@ Another thing to think about, either when connecting to remote nodes or hosting 
 
 Hosting your own node for use with your own wallet simply reduces the amount of your personal data floating around the web. Monero's Dandelion++ technology does the hard part by seamlessly obfuscating the origin of all transactions. This article from the good folks at LocalMonero goes into more detail about Dandelion++.
 
-Before we continue, you need to be learn about whatever local risks, if any, are associated with hosting your own node. This is important for your personal security and obviously depends on where in the world you live and work.
+Before we continue, you need to learn about whatever local risks, if any, are associated with hosting your own node. This is important for your personal security and obviously depends on where in the world you live and work.
 
-Currently, the best ways to shield your Internet activities from malicious actors is through a trustworthy Virtual Proxy Network (VPN), Tor routing (The Onion Routing Project) or Invisible Internet Project (I2P). Best practices are not timeless and there will always be developments in the web and the Monero ecosystem, but the Monero developer community is one of the largest and most privacy-focused organizations in this space.
+Currently, the best ways to shield your Internet activities from malicious actors is through either a trustworthy Virtual Proxy Network (VPN), Tor routing (The Onion Routing Project) or Invisible Internet Project (I2P). Best practices are not timeless and there will always be developments in the web and the Monero ecosystem, but the Monero developer community is one of the largest and most privacy-focused organizations in this space.
 
-Please skip to the next video if you have any security concerns. If you still want to host your own node and support the network, we will of course be showing you how to do so with VPN in Video 4 of this series: Using Monero with Enhanced Privacy.
+Please skip to the next video if you have any security concerns. If you still want to host your own node and support the network, we will of course be showing you how to do so with a VPN in Video 4 of this series: Using Monero with Enhanced Privacy.
 
 
 ### HARWARE RECOMMENDATIONS
@@ -84,9 +84,9 @@ The next sections will cover the process for Linux and Windows independently, pl
 
 ### PREPARING YOUR FOLDERS - LINUX
 
-If you are using a linux distro like I am currently, then you're going to need to open a command line terminal. I'm going to navigate to the right directory using the terminal and the change directory command: `cd`. You can then use `ls` to check you're in the right place. If you're using the file explorer, head to the proper folder and *Right click* and select *Open in Terminal*.
+If you're using a linux distro like I am currently, then you're going to need to open a command line terminal. I'm going to navigate to the right directory using the terminal and the change directory command: `cd`. You can then use `ls` to check you're in the right place. If you're using the file explorer, head to the proper folder and *Right click* and select *Open in Terminal*.
 
-You'll find the commands used in the description below, feel free to copy and paste them into your terminal window. To paste into the terminal window you'll need to use the *Shift* key in addition to *Ctrl* to copy (*Ctrl + Shift + C*) and paste (*Ctrl + Shift + C*). 
+You'll find the commands used in the description below, feel free to copy and paste them into your terminal window. To paste into the terminal window you'll need to use the *Shift* key in addition to *Ctrl* to copy (*Ctrl + Shift + C*) and paste (*Ctrl + Shift + V*). 
 
 `mkdir ~/monerod; tar -xjf monero-linux-x64-v*.tar.bz2 -C ~/monerod`
 
@@ -100,7 +100,7 @@ Use the `cd` command and navigate to the newly created directory and look for th
 ### PREPARING YOUR FOLDERS - WINDOWS
 
 
-The first thing we're going to do is move download file to a custom folder. First select and cut using *Ctrl + X*
+The first thing we're going to do is move the downloaded file to a custom folder. First select and cut using *Ctrl + X*
 
 Next we'll go to the `C:` drive to create a folder called *monerod*. Double click on the new folder and paste the zip file you just cut with *Ctrl + V*
 
@@ -151,9 +151,9 @@ Before we take a look at the rest of the file, we're going to add two more lines
 
 Enabling the block list prevents connections to known bad actors and is centrally maintained by the Monero core team. The `no-zmq` option disables a particular interface we will not be using, limiting the potential attack surface.
 
-Let's now move onto the default config. The first setting here sets the location of the database, which will be created to store the blockchain data. I'm going to set it so that it saves it to a new folder called *data* within the *monerod* folder we created earlier. To do this we can simply replace this location with *data*.
+Let's move onto the default config. The first setting here sets the location of the database, which will be created to store the blockchain data. I'm going to set it so that it saves it to a new folder called *data* within the *monerod* folder we created earlier. To do this we can simply replace this location with *data*.
 
-The next thing on the list is the location we want the Monero daemon to save logs. I'm going to change this to the same **data** folder by replacing everything that comes before *monerod.log* with *data/logs/*.  If anything goes wrong, we can quickly and easily investigate from here!
+The next thing on the list is the location we want the Monero daemon to save logs. I'm going to change this to the same **data** folder by deleting everything that comes before *monerod.log*.  If anything goes wrong, we can quickly and easily investigate from here!
 
 Before continuing, let's consider whats actually going on here when the node is spinning up.
 
