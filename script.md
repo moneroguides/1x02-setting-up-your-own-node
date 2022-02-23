@@ -45,7 +45,7 @@ When you connect to remote nodes, it's possible for the host to obtain the follo
 
 Depending on your privacy concerns, this might not be ideal. So make sure you connect to a remote node hosted by someone you can trust. This is very important!
 
-If you are unable to run your own node for whatever reason, you can skip over this video for now.
+If you're unable to run your own node for whatever reason, you can skip over this video for now.
 
 Another thing to think about, either when connecting to remote nodes or hosting your own, is that your Internet Service Provider (ISP) will be able to recognise all of your activities. Although this information doesn't deanonymise your Monero address or transactions, it can still be used by malicious actors.
 
