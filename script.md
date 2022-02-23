@@ -2,7 +2,7 @@
 
 ## PREREQUISITES
 
-* gpg2 (Linux)
+* GPG (Linux)
 * Kleopatra / gpg4win (Windows)
 * At least 50 GB disk space
 
