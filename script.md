@@ -153,7 +153,7 @@ Enabling the block list prevents connections to known bad actors and is centrall
 
 Let's move onto the default config. The first setting here sets the location of the database, which will be created to store the blockchain data. I'm going to set it so that it saves it to a new folder called *data* within the *monerod* folder we created earlier. To do this we can simply replace this location with *data*.
 
-The next thing on the list is the location we want the Monero daemon to save logs. I'm going to change this to the same **data** folder by deleting everything that comes before *monerod.log*.  If anything goes wrong, we can quickly and easily investigate from here!
+The next thing on the list is the location we want the Monero daemon to save logs. I'm going to change this to the same **data** folder by replacing everything that comes before *monerod.log* with *data/logs/*.  If anything goes wrong, we can quickly and easily investigate from here!
 
 Before continuing, let's consider whats actually going on here when the node is spinning up.
 
