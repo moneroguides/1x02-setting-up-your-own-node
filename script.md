@@ -88,8 +88,8 @@ If you're using a linux distro like I am currently, then you're going to need to
 
 You'll find the commands used in the description below, feel free to copy and paste them into your terminal window. To paste into the terminal window you'll need to use the *Shift* key in addition to *Ctrl*.
 
-- Copy (*Ctrl + Shift + C*) 
-- Paste (*Ctrl + Shift + V*). 
+- Copy - *Ctrl + Shift + C* 
+- Paste - *Ctrl + Shift + V*
 
 We'll be using the following command for the next step;
 
