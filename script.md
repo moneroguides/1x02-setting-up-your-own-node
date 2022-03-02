@@ -91,9 +91,11 @@ You'll find the commands used in the description below, feel free to copy and pa
 - Copy (*Ctrl + Shift + C*) 
 - Paste (*Ctrl + Shift + V*). 
 
+We'll be using the following command for the next step;
+
 `mkdir ~/monerod; tar -xjf monero-linux-x64-v*.tar.bz2 -C ~/monerod`
 
-Let's break down this command. First, we're making a directory called *monerod*, in the user's directory (`/home/"USERNAME"`), then we're using the `tar` function to unpack the compressed folder into the directory we just created.
+Let's break this down. First, we're making a directory called *monerod*, in the user's directory (`/home/"USERNAME"`), then we're using the `tar` function to unpack the compressed folder into the directory we just created.
 
 Now, let's run that by hitting *Enter*
 
