@@ -1,0 +1,54 @@
+Prerequisites:
+
+    GPG (Linux)
+    Kleopatra / gpg4win (Windows)
+    At least 50 GB disk space
+
+.....................................................................
+
+0:00 INTRO
+0:29 WHAT IS A MONERO NODE? 
+1:28 REMOTE VS LOCAL
+3:35 HARWARE RECOMMENDATIONS
+5:01 DOWNLOADING THE MONERO SOFTWARE
+5:37 PREPARING YOUR FOLDERS - LINUX
+6:56 PREPARING YOUR FOLDERS - WINDOWS
+8:11 CREATING A CONFIG FILE
+9:29 TO PRUNE OR NOT TO PRUNE
+11:20 FINALISING OUR CONFIG FILE
+14:57 SPINNING UP YOUR NODE
+16:58 FORWARDING THE P2P PORT - LINUX
+18:48 FORWARDING THE P2P PORT - WINDOWS
+21:32 OUTRO
+.....................................................................
+
+mkdir ~/monerod; tar -xjf monero-linux-x64-v*.tar.bz2 -C ~/monerod
+sync-pruned-blocks=1
+prune-blockchain=1
+enable-dns-blocklist=1
+no-zmq=1
+./monerod.exe --config-file=./bitmonero.conf
+./monerod --config-file=./bitmonero.conf
+ufw --version
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw allow 18080/tcp
+print_net_stats
+limit_up *
+limit_down *
+
+.....................................................................
+
+Moneroecosystem Wokrgroup Guide - https://moneroecosystem.org/pinode-xmr/
+Official Monero Github Repo - https://github.com/monero-project/monero
+Monerodocs - https://monerodocs.org
+Monerodocs Cofig - https://monerodocs.org/interacting/monero-config-file/
+Monerodocs Reference page - https://monerodocs.org/interacting/monerod-reference
+Uncomplicated Firewall - https://wiki.ubuntu.com/UncomplicatedFirewall
+
+.....................................................................
+
+All contents of this video are valid on release, please keep in mind that future updates of P2Pool may mean that some steps are no longer required.
+If enough of these changes occur a new video will be released.
