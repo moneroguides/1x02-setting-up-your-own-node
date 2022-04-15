@@ -1,6 +1,6 @@
 # Getting to Grips with Monero - Setting up your own Node 
 
-## PREREQUISITES
+## Prerequisites:
 
 * GPG (Linux)
 * Kleopatra / gpg4win (Windows)
