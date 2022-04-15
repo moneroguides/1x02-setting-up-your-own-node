@@ -281,3 +281,5 @@ If you have any comments or questions, feel free to leave them below, but please
 That's it for this video, if you're interested in seeing how you can put your node to use, you can check out the other videos in this series.
 
 Thanks for watching and bye for now.
+
+~moneroguides
