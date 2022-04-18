@@ -49,7 +49,7 @@ If you're unable to run your own node for whatever reason, you can skip over thi
 
 Another thing to think about, either when connecting to remote nodes or hosting your own, is that your Internet Service Provider (ISP) will be able to recognise all of your activities. Although this information doesn't deanonymise your Monero address or transactions, it can still be used by malicious actors.
 
-Hosting your own node for use with your own wallet simply reduces the amount of your personal data floating around the web. Monero's Dandelion++ technology does the hard part by seamlessly obfuscating the origin of all transactions. This article from the good folks at LocalMonero goes into more detail about Dandelion++.
+Hosting your own node for use with your own wallet simply reduces the amount of your personal data floating around the web. Monero's Dandelion++ technology does the hard part by seamlessly obfuscating the origin of all transactions. [This article](https://localmonero.co/knowledge/monero-dandelion) from the good folks at LocalMonero goes into more detail about Dandelion++.
 
 Before we continue, you need to learn about whatever local risks, if any, are associated with hosting your own node. This is important for your personal security and obviously depends on where in the world you live and work.
 
