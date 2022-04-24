@@ -55,7 +55,7 @@ Before we continue, you need to learn about whatever local risks, if any, are as
 
 Currently, the best ways to shield your Internet activities from malicious actors is through either a trustworthy Virtual Proxy Network (VPN), Tor routing (The Onion Routing Project) or Invisible Internet Project (I2P). Best practices are not timeless and there will always be developments in the web and the Monero ecosystem, but the Monero developer community is one of the largest and most privacy-focused organizations in this space.
 
-If you plan to use a VPN, you will be able to follow most of this guide, but may struggle forwarding the required ports. The fourth video in this series has a sections titled *USING A VPN - CLEARNET*, you can learn how to do this there.
+For those wishing to use either Tor or a VPN, we will offer further instruction later on.
 
 
 ### HARWARE RECOMMENDATIONS
@@ -178,7 +178,7 @@ Finally we move onto network traffic. How many peers you connect to and the band
 
 I'm going to leave all of this as default for now.
 
-If you plan to use your node with Tor, you may now wish to skip to the section in video 4 titled *FORWARDING P2P TRAFFIC OVER TOR*. That's where you will learn what else is necassary to run your node over the Tor network. Head back here when you have made the required alterations to your config file.
+Those of you who wish to use Tor, you should now skip forward to video 4, where you should watch the section titled *FORWARDING P2P TRAFFIC OVER TOR*. That's where you will learn what else is necassary to run your node over the Tor network. Head back here when you have made the required alterations to your config file.
 
 
 ### SPINNING UP YOUR NODE
