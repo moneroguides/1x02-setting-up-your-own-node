@@ -55,7 +55,7 @@ Before we continue, you need to learn about whatever local risks, if any, are as
 
 Currently, the best ways to shield your Internet activities from malicious actors is through either a trustworthy Virtual Proxy Network (VPN), Tor routing (The Onion Routing Project) or Invisible Internet Project (I2P). Best practices are not timeless and there will always be developments in the web and the Monero ecosystem, but the Monero developer community is one of the largest and most privacy-focused organizations in this space.
 
-Please skip to the next video if you have any security concerns. If you still want to host your own node and support the network, we will of course be showing you how to do so with a VPN in Video 4 of this series: Using Monero with Enhanced Privacy.
+If you plan to use a VPN, you will be able to follow most of this guide, but may struggle forwarding the required ports. The fourth video in this series has a sections titled *USING A VPN - CLEARNET*, you can learn how to do this there.
 
 
 ### HARWARE RECOMMENDATIONS
@@ -156,7 +156,7 @@ Before we take a look at the rest of the file, we're going to add two more lines
 
 Enabling the block list prevents connections to known bad actors and is centrally maintained by the Monero core team. The `no-zmq` option disables a particular interface we will not be using, limiting the potential attack surface.
 
-Let's move onto the default config. The first setting here sets the location of the database, which will be created to store the blockchain data. I'm going to set it so that it saves it to a new folder called *data* within the *monerod* folder we created earlier. To do this we can simply replace this location with *data*.
+Let's move onto the default config. I'm going edit the *data-dir=* flag so that it saves our blockchain information to a new folder called *data* within the *monerod* folder we created earlier. To do this we can simply replace this location with *data*.
 
 The next thing on the list is the location we want the Monero daemon to save logs. I'm going to change this to the same **data** folder by replacing everything that comes before *monerod.log* with *data/logs/*.  If anything goes wrong, we can quickly and easily investigate from here!
 
@@ -177,6 +177,8 @@ To save time in this video we're going to skip over the next two sections in the
 Finally we move onto network traffic. How many peers you connect to and the bandwidth you allocate is totally customisable. Increasing the outpeers and the down rate will directly contribute to your initial sync. I suggest you have these pretty high to begin with, you can always change things later on to suit your circumstances. 
 
 I'm going to leave all of this as default for now.
+
+If you plan to use your node with Tor, you may now wish to skip to the section in video 4 titled *FORWARDING P2P TRAFFIC OVER TOR*. That's where you will learn what else is necassary to run your node over the Tor network. Head back here when you have made the required alterations to your config file.
 
 
 ### SPINNING UP YOUR NODE
