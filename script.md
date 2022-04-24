@@ -178,7 +178,7 @@ Finally we move onto network traffic. How many peers you connect to and the band
 
 I'm going to leave all of this as default for now.
 
-Those of you who wish to use Tor, you should now skip forward to video 4, where you should watch the section titled *FORWARDING P2P TRAFFIC OVER TOR*. That's where you will learn what else is necassary to run your node over the Tor network. Head back here when you have made the required alterations to your config file.
+Those of you who wish to use Tor, you should now skip forward to video 4, where you should watch the section titled **FORWARDING P2P TRAFFIC OVER TOR**. That's where you will learn what else is necassary to run your node over the Tor network. Head back here when you have made the required alterations to your config file.
 
 
 ### SPINNING UP YOUR NODE
